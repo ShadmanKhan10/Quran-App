@@ -1,6 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { juzNames } from "./DATA/JuzzNames";
+import mecca from "../../assets/mecca.png";
+import madina from "../../assets/madina.png";
+import play from "../../assets/play.png";
+import save from "../../assets/bookmark.png";
+import copy from "../../assets/copy.png";
 
 export default function SpecifChapter() {
   const [isTranlationActive, setIsTranslationActive] = useState(true);
@@ -8,7 +14,13 @@ export default function SpecifChapter() {
     english: [],
     arabic: [],
   });
+  const [quranInfo, setQuranInfo] = useState({
+    englishName: "",
+    arabicName: "",
+    verseCount: "",
+  });
   const { id } = useParams();
+  const { chapterType } = useParams();
 
   useEffect(() => {
     const getChapterDetails = async () => {
@@ -16,16 +28,57 @@ export default function SpecifChapter() {
         const response = await axios.get(
           `https://quranapi.pages.dev/api/${id}.json`
         );
+        console.log(response.data.revelationPlace);
         setQuranChapter({
           english: response.data.english,
           arabic: response.data.arabic1,
+          revaltionPlace: response.data.revelationPlace,
+        });
+        setQuranInfo({
+          englishName: response.data.surahNameTranslation,
+          arabicName: response.data.surahName,
+          verseCount: response.data.totalAyah,
         });
       } catch (error) {
         console.log(error);
       }
     };
-    getChapterDetails();
+    juzNames.includes(chapterType) ? getJuzzDetails() : getChapterDetails();
   }, [id]);
+
+  const getJuzzDetails = async () => {
+    try {
+      // Fetch Arabic text
+      const arabicResponse = await axios.get(
+        `http://api.alquran.cloud/v1/juz/${id}/quran-uthmani`
+      );
+      const arabicText = arabicResponse.data.data.ayahs.map(
+        (ayah) => ayah.text
+      );
+
+      // Fetch English text
+      const englishResponse = await axios.get(
+        `http://api.alquran.cloud/v1/juz/${id}/en.sahih`
+      );
+      const englishText = englishResponse.data.data.ayahs.map(
+        (ayah) => ayah.text
+      );
+
+      // Set state
+      setQuranChapter({
+        arabic: arabicText,
+        english: englishText,
+        revaltionPlace: englishResponse.data.revaltionPlace,
+      });
+      setQuranInfo({
+        englishName: englishResponse.data.surahNameTranslation,
+        arabicName: englishResponse.data.surahName,
+        verseCount: englishResponse.data.totalAyah,
+      });
+    } catch (error) {
+      console.log("Error fetching Juzz details:", error);
+    }
+  };
 
   const handleTranslation = () => {
     setIsTranslationActive(true);
@@ -48,37 +101,92 @@ export default function SpecifChapter() {
           </p>
         </div>
       </div>
+
+      <div className="revelation-container">
+        <div className="quran-info-container">
+          <p className="surah-arabicname">{quranInfo.arabicName}</p>
+          <p className="surah-englishName">{quranInfo.englishName}</p>
+          <p className="surah-verses">{quranInfo.verseCount} verses</p>
+          <p className="surah-revelation">{quranChapter.revaltionPlace}</p>
+        </div>
+        <img
+          src={quranChapter.revaltionPlace === "Mecca" ? mecca : madina}
+          alt="revelation-img"
+          className="revelation-img"
+        />
+      </div>
+
       <div className="all-verses-container">
         {isTranlationActive && (
           <div>
-            {quranChapter.arabic.map((arabicVerse, index) => (
-              <div key={index} className="verse-container">
-                <div className="verse-util">{index + 1}</div>
-                <div className="arabic-verse-container">
-                  <p className="arabic-text">{arabicVerse}</p>
-                </div>
+            {quranChapter.arabic.map((arabicVerse, index) => {
+              const specialPhrase = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
 
-                <div className="english-verse-container">
-                  <p className="english-text">{quranChapter.english[index]}</p>
+              const startsWithBismillah = arabicVerse.startsWith(specialPhrase);
+              const restOfVerse = startsWithBismillah
+                ? arabicVerse.slice(specialPhrase.length).trim()
+                : arabicVerse;
+
+              return (
+                <div key={index} className="verse-container">
+                  <div className="verse-util">
+                    <p className="number">{index + 1}</p>
+                    <div className="share-container">
+                      <img src={play} alt="" className="share-img" />
+                      <img src={save} alt="" className="share-img" />
+                      <img src={copy} alt="" className="share-img" />
+                    </div>
+                  </div>
+                  <div className="arabic-verse-container">
+                    <p className="arabic-text">
+                      {startsWithBismillah && (
+                        <span className="bismillah-text">{specialPhrase}</span>
+                      )}
+                      {restOfVerse && ` ${restOfVerse}`}
+                    </p>
+                  </div>
+
+                  <div className="english-verse-container">
+                    <p className="english-text">
+                      {quranChapter.english[index]}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
+
         {!isTranlationActive && (
           <div>
-            {quranChapter.arabic.map((arabicVerse, index) => (
-              <div key={index} className="verse-container-read">
-                <div className="arabic-verse-container-read">
-                  <div className="arabic-txt-readnumber-c">
-                    <p className="arabic-text-readnumber">{index + 1}</p>
-                  </div>
-                  <div className="arabic-txt-readverse-c">
-                    <p className="arabic-text-read">{arabicVerse}</p>
+            {quranChapter.arabic.map((arabicVerse, index) => {
+              const specialPhrase = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
+
+              const startsWithBismillah = arabicVerse.startsWith(specialPhrase);
+              const restOfVerse = startsWithBismillah
+                ? arabicVerse.slice(specialPhrase.length).trim()
+                : arabicVerse;
+
+              return (
+                <div key={index} className="verse-container-read">
+                  <div className="arabic-verse-container-read">
+                    <div className="arabic-txt-readnumber-c">
+                      <p className="arabic-text-readnumber">{index + 1}</p>
+                    </div>
+                    <div className="arabic-txt-readverse-c">
+                      <p className="arabic-text-read">
+                        {startsWithBismillah && (
+                          <span className="bismillah-text-read">
+                            {specialPhrase}
+                          </span>
+                        )}
+                        {restOfVerse && ` ${restOfVerse}`}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

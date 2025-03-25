@@ -1,7 +1,11 @@
 .quran-service-container {
   margin-bottom: 5rem;
+  /* margin-left: ; */
 }
 .quran-nav-container {
+  position: sticky;
+  top: 1rem;
+  z-index: 20;
   height: 2.8rem;
   margin: 1rem 1.5rem;
   border-radius: 12px;
@@ -10,12 +14,14 @@
   align-items: center;
   padding: 5px 0px;
   box-sizing: border-box;
-  background-color: brown;
+  /* background-color: rgb(0, 163, 22); */
+  background-color: rgba(120, 85, 70, 255);
 }
 .quran-nav-element {
-  background-color: white;
+  /* background-color: rgb(219, 255, 222); */
+  background-color: rgba(200, 155, 118, 255);
   height: 100%;
-  width: 4rem;
+  /* width: 4rem; */
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
@@ -25,10 +31,10 @@
 }
 .quran-element {
   cursor: pointer;
+  color: white;
 }
 
 .chapter-container {
-  /* border: 1px solid black; */
   /* border-bottom: 0.5px solid black; */
   display: flex;
   justify-content: space-between;
@@ -39,7 +45,7 @@
   padding: 0.5rem;
   height: 4rem;
   /* background-color: rgb(253, 249, 232); */
-  background-color: white;
+  /* background-color: rgb(251, 241, 225); */
   border-radius: 10px;
 }
 .chaper-no-container {
@@ -51,7 +57,8 @@
   align-items: center;
   border-radius: 50%;
   /* background-color: rgb(242, 251, 242); */
-  background-color: rgb(251, 225, 131);
+  /* background-color: rgb(251, 225, 131); */
+  background-color: rgba(252, 244, 232, 255);
   position: relative;
 }
 .chapter-no {
@@ -88,7 +95,12 @@
 .english-text,
 .arabic-text,
 .chapter-english-name,
-.arabic-text-read {
+.arabic-text-read,
+.surah-arabicname,
+.surah-englishName,
+.surah-verses,
+.surah-revelation,
+.number {
   padding: 0;
   margin: 0;
 }
@@ -98,15 +110,17 @@
 }
 .chapter-verse-revelation {
   font-size: 0.9rem;
+  color: rgba(197, 179, 153, 255);
 }
 .chapter-name {
   font-size: 1.1rem;
 }
 .chapter-arabic-name {
   font-size: 1.2rem;
+  color: rgba(197, 179, 153, 255);
 }
 .all-verses-container {
-  background-color: white;
+  background-color: rgba(255, 250, 245, 255);
   margin: 1rem;
 }
 .verse-container {
@@ -125,7 +139,7 @@
 .english-text {
   text-align: left;
   font-size: 1rem;
-  background-color: rgb(236, 255, 236);
+  background-color: rgba(253, 243, 232, 255);
   border-radius: 5px;
   padding: 7px;
   box-sizing: border-box;
@@ -139,7 +153,7 @@
 
   box-sizing: border-box;
   border-bottom: 0.5px solid gray;
-  background-color: white;
+  background-color: rgba(255, 250, 245, 255);
 }
 .arabic-txt-readverse-c {
   width: 90%;
@@ -161,4 +175,73 @@
 }
 .arabic-text-readnumber {
   font-size: 0.9rem;
+}
+
+.bismillah-text {
+  color: red;
+  font-size: 2.5rem;
+}
+.bismillah-text-read {
+  color: red;
+  font-size: 2.2rem;
+}
+
+.verse-util {
+  height: 2.8rem;
+  border-radius: 12px;
+  padding: 5px 0px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgba(253, 243, 232, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.revelation-container {
+  /* height: 6rem; */
+  display: flex;
+  justify-content: space-between;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  border-radius: 12px;
+  background-color: rgba(253, 237, 220, 255);
+}
+.revelation-img {
+  height: 6rem;
+  width: 6rem;
+  object-fit: contain;
+}
+.quran-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+  justify-content: center;
+}
+.surah-englishName,
+.surah-revelation,
+.surah-verses {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.9rem;
+}
+.surah-arabicname {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.surah-englishName {
+  margin-top: -0.1rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.share-container {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+.number {
+  margin-left: 1rem;
+}
+.share-img {
+  height: 1.5rem;
+  width: 1.5rem;
+  object-fit: contain;
 }

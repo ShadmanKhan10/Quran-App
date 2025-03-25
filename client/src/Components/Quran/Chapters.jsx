@@ -12,7 +12,8 @@ export default function Chapters({
 }) {
   const navigate = useNavigate();
   const handleChapterNavigation = () => {
-    navigate(`/quran/${id}`);
+    const newChapterName = name;
+    navigate(`/quran/${newChapterName}/${id}`);
   };
   return (
     <div className="chapter-container" onClick={handleChapterNavigation}>

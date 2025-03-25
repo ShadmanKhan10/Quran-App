@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/quran" element={<Quran />} />
-          <Route path="/quran/:id" element={<SpecifChapter />} />
+          <Route path="/quran/:chapterType/:id" element={<SpecifChapter />} />
         </Routes>
       </BrowserRouter>
     </>

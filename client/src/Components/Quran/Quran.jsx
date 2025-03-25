@@ -21,20 +21,14 @@ export default function Quran() {
     <>
       <div className="quran-service-container">
         <div className="quran-nav-container">
-          <div className="quran-nav-element">
-            <p className="quran-element" onClick={displayChapters}>
-              Chapter
-            </p>
+          <div className="quran-nav-element" onClick={displayChapters}>
+            <p className="quran-element">Chapter</p>
           </div>
-          <div className="quran-nav-element">
-            <p className="quran-element" onClick={displayJuz}>
-              Juz
-            </p>
+          <div className="quran-nav-element" onClick={displayJuz}>
+            <p className="quran-element">Juz</p>
           </div>
-          <div className="quran-nav-element">
-            <p className="quran-element" onClick={displayJuz}>
-              Listen
-            </p>
+          <div className="quran-nav-element" onClick={displayJuz}>
+            <p className="quran-element">Listen</p>
           </div>
         </div>
         {isChapterActive && (
