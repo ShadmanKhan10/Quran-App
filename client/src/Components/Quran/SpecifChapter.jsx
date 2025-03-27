@@ -2,11 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { juzNames } from "./DATA/JuzzNames";
+import { juzzVerseCount } from "./DATA/JuzzVerseCount";
 import mecca from "../../assets/mecca.png";
 import madina from "../../assets/madina.png";
 import play from "../../assets/play.png";
 import save from "../../assets/bookmark.png";
 import copy from "../../assets/copy.png";
+import menu from "../../assets/menu.png";
 
 export default function SpecifChapter() {
   const [isTranlationActive, setIsTranslationActive] = useState(true);
@@ -70,6 +72,7 @@ export default function SpecifChapter() {
         english: englishText,
         revaltionPlace: englishResponse.data.revaltionPlace,
       });
+
       setQuranInfo({
         englishName: englishResponse.data.surahNameTranslation,
         arabicName: englishResponse.data.surahName,
@@ -89,13 +92,31 @@ export default function SpecifChapter() {
 
   return (
     <>
+      <div className="chap-info-container">
+        <img src={menu} alt="" className="menu-img" />
+        <p className="al-quran-arabicText">{`${id}. ${
+          quranInfo.arabicName || juzNames[id - 1]
+        }`}</p>
+      </div>
       <div className="quran-nav-container">
-        <div className="quran-nav-element">
+        <div
+          className={
+            isTranlationActive
+              ? "quran-nav-element"
+              : "quran-nav-element-inactive"
+          }
+        >
           <p className="quran-element" onClick={handleTranslation}>
             Translation
           </p>
         </div>
-        <div className="quran-nav-element">
+        <div
+          className={
+            !isTranlationActive
+              ? "quran-nav-element"
+              : "quran-nav-element-inactive"
+          }
+        >
           <p className="quran-element" onClick={handleReading}>
             Read
           </p>
@@ -104,16 +125,29 @@ export default function SpecifChapter() {
 
       <div className="revelation-container">
         <div className="quran-info-container">
-          <p className="surah-arabicname">{quranInfo.arabicName}</p>
-          <p className="surah-englishName">{quranInfo.englishName}</p>
-          <p className="surah-verses">{quranInfo.verseCount} verses</p>
-          <p className="surah-revelation">{quranChapter.revaltionPlace}</p>
+          <p className="surah-arabicname">
+            {quranInfo.arabicName || chapterType}
+          </p>
+          <p className="surah-englishName">
+            {quranInfo.englishName ||
+              (juzNames.includes(chapterType) && quranInfo.englishName)}
+          </p>
+          <p className="surah-verses">
+            {quranInfo.verseCount || juzzVerseCount[id - 1]} verses
+          </p>
+          <p className="surah-revelation">
+            {quranChapter.revaltionPlace || "some-text"}
+          </p>
         </div>
         <img
           src={quranChapter.revaltionPlace === "Mecca" ? mecca : madina}
           alt="revelation-img"
           className="revelation-img"
         />
+      </div>
+
+      <div className="bismillah-container">
+        <p className="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
       </div>
 
       <div className="all-verses-container">

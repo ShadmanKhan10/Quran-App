@@ -1,11 +1,11 @@
 import home from "../../assets/home.png";
+import homeActive from "../../assets/home-active.png";
 import quran from "../../assets/quran.png";
-import sajdah from "../../assets/sajdah.png";
+import quranAvtive from "../../assets/quran-active.png";
+import sajdah from "../../assets/salah.png";
+import sajdahActive from "../../assets/salah-active.png";
 import user from "../../assets/user.png";
 import userActive from "../../assets/user-active.png";
-import homeActive from "../../assets/home-active.png";
-import quranAvtive from "../../assets/quran-active.png";
-import sajdahActive from "../../assets/sajdah-active.png";
 
 export const NavElement = [
   {

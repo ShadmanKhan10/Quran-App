@@ -20,7 +20,7 @@
 .banner-slider-container {
   display: flex;
   /* border: 1px solid red; */
-  overflow-x: scroll;
+  overflow: hidden;
   width: 92%;
   margin-left: auto;
   margin-right: auto;

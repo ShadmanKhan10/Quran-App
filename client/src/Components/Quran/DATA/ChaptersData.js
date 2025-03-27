@@ -6,6 +6,7 @@ export const chapters = [
     arabicName: "الفاتحة",
     englishName: "The Opening",
     revelation: "Meccan",
+    startPage: 1,
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const chapters = [
     arabicName: "البقرة",
     englishName: "The Cow",
     revelation: "Medinan",
+    startPage: 2,
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ export const chapters = [
     arabicName: "آل عمران",
     englishName: "The Family of Imran",
     revelation: "Medinan",
+    startPage: 50,
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ export const chapters = [
     arabicName: "النساء",
     englishName: "The Women",
     revelation: "Medinan",
+    startPage: 77,
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ export const chapters = [
     arabicName: "المائدة",
     englishName: "The Table Spread",
     revelation: "Medinan",
+    startPage: 106,
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ export const chapters = [
     arabicName: "الأنعام",
     englishName: "The Cattle",
     revelation: "Meccan",
+    startPage: 128,
   },
   {
     id: 7,
@@ -54,6 +60,7 @@ export const chapters = [
     arabicName: "الأعراف",
     englishName: "The Heights",
     revelation: "Meccan",
+    startPage: 151,
   },
   {
     id: 8,
@@ -62,6 +69,7 @@ export const chapters = [
     arabicName: "الأنفال",
     englishName: "The Spoils of War",
     revelation: "Medinan",
+    startPage: 177,
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ export const chapters = [
     arabicName: "التوبة",
     englishName: "The Repentance",
     revelation: "Medinan",
+    startPage: 187,
   },
   {
     id: 10,
@@ -78,6 +87,7 @@ export const chapters = [
     arabicName: "يونس",
     englishName: "Jonah",
     revelation: "Meccan",
+    startPage: 208,
   },
   {
     id: 11,
@@ -86,6 +96,7 @@ export const chapters = [
     arabicName: "هود",
     englishName: "Hud",
     revelation: "Meccan",
+    startPage: 221,
   },
   {
     id: 12,
@@ -94,6 +105,7 @@ export const chapters = [
     arabicName: "يوسف",
     englishName: "Joseph",
     revelation: "Meccan",
+    startPage: 235,
   },
   {
     id: 13,
@@ -102,6 +114,7 @@ export const chapters = [
     arabicName: "الرعد",
     englishName: "The Thunder",
     revelation: "Medinan",
+    startPage: 249,
   },
   {
     id: 14,
@@ -110,6 +123,7 @@ export const chapters = [
     arabicName: "ابراهيم",
     englishName: "Abraham",
     revelation: "Meccan",
+    startPage: 255,
   },
   {
     id: 15,
@@ -118,6 +132,7 @@ export const chapters = [
     arabicName: "الحجر",
     englishName: "The Rocky Tract",
     revelation: "Meccan",
+    startPage: 262,
   },
   {
     id: 16,
@@ -126,6 +141,7 @@ export const chapters = [
     arabicName: "النحل",
     englishName: "The Bee",
     revelation: "Meccan",
+    startPage: 267,
   },
   {
     id: 17,
@@ -134,6 +150,7 @@ export const chapters = [
     arabicName: "الإسراء",
     englishName: "The Night Journey",
     revelation: "Meccan",
+    startPage: 282,
   },
   {
     id: 18,
@@ -142,6 +159,7 @@ export const chapters = [
     arabicName: "الكهف",
     englishName: "The Cave",
     revelation: "Meccan",
+    startPage: 293,
   },
   {
     id: 19,
@@ -150,6 +168,7 @@ export const chapters = [
     arabicName: "مريم",
     englishName: "Mary",
     revelation: "Meccan",
+    startPage: 305,
   },
   {
     id: 20,
@@ -158,6 +177,7 @@ export const chapters = [
     arabicName: "طه",
     englishName: "Ta-Ha",
     revelation: "Meccan",
+    startPage: 312,
   },
   {
     id: 21,
@@ -166,6 +186,7 @@ export const chapters = [
     arabicName: "الأنبياء",
     englishName: "The Prophets",
     revelation: "Meccan",
+    startPage: 322,
   },
   {
     id: 22,
@@ -174,6 +195,7 @@ export const chapters = [
     arabicName: "الحج",
     englishName: "The Pilgrimage",
     revelation: "Medinan",
+    startPage: 332,
   },
   {
     id: 23,
@@ -182,6 +204,7 @@ export const chapters = [
     arabicName: "المؤمنون",
     englishName: "The Believers",
     revelation: "Meccan",
+    startPage: 342,
   },
   {
     id: 24,
@@ -190,6 +213,7 @@ export const chapters = [
     arabicName: "النور",
     englishName: "The Light",
     revelation: "Medinan",
+    startPage: 350,
   },
   {
     id: 25,
@@ -198,14 +222,16 @@ export const chapters = [
     arabicName: "الفرقان",
     englishName: "The Criterion",
     revelation: "Meccan",
+    startPage: 359,
   },
   {
     id: 26,
-    name: "Ash-Shu’ara",
+    name: "Ash-Shu'ara",
     verses: 227,
     arabicName: "الشعراء",
     englishName: "The Poets",
     revelation: "Meccan",
+    startPage: 367,
   },
   {
     id: 27,
@@ -214,6 +240,7 @@ export const chapters = [
     arabicName: "النمل",
     englishName: "The Ant",
     revelation: "Meccan",
+    startPage: 377,
   },
   {
     id: 28,
@@ -222,6 +249,7 @@ export const chapters = [
     arabicName: "القصص",
     englishName: "The Stories",
     revelation: "Meccan",
+    startPage: 385,
   },
   {
     id: 29,
@@ -230,6 +258,7 @@ export const chapters = [
     arabicName: "العنكبوت",
     englishName: "The Spider",
     revelation: "Meccan",
+    startPage: 396,
   },
   {
     id: 30,
@@ -238,8 +267,8 @@ export const chapters = [
     arabicName: "الروم",
     englishName: "The Romans",
     revelation: "Meccan",
+    startPage: 404,
   },
-
   {
     id: 31,
     name: "Luqman",
@@ -247,6 +276,7 @@ export const chapters = [
     arabicName: "لقمان",
     englishName: "Luqman",
     revelation: "Meccan",
+    startPage: 411,
   },
   {
     id: 32,
@@ -255,6 +285,7 @@ export const chapters = [
     arabicName: "السجدة",
     englishName: "The Prostration",
     revelation: "Meccan",
+    startPage: 415,
   },
   {
     id: 33,
@@ -263,14 +294,16 @@ export const chapters = [
     arabicName: "الأحزاب",
     englishName: "The Confederates",
     revelation: "Medinan",
+    startPage: 418,
   },
   {
     id: 34,
     name: "Saba",
     verses: 54,
-    arabicName: "سبإ",
+    arabicName: "سبأ",
     englishName: "Sheba",
     revelation: "Meccan",
+    startPage: 428,
   },
   {
     id: 35,
@@ -279,6 +312,7 @@ export const chapters = [
     arabicName: "فاطر",
     englishName: "The Originator",
     revelation: "Meccan",
+    startPage: 434,
   },
   {
     id: 36,
@@ -287,30 +321,34 @@ export const chapters = [
     arabicName: "يس",
     englishName: "Ya-Sin",
     revelation: "Meccan",
+    startPage: 440,
   },
   {
     id: 37,
     name: "As-Saffat",
     verses: 182,
     arabicName: "الصافات",
-    englishName: "Those who set the Ranks",
+    englishName: "The Rangers",
     revelation: "Meccan",
+    startPage: 446,
   },
   {
     id: 38,
     name: "Sad",
     verses: 88,
     arabicName: "ص",
-    englishName: "The Letter Sad",
+    englishName: "Sad",
     revelation: "Meccan",
+    startPage: 453,
   },
   {
     id: 39,
     name: "Az-Zumar",
     verses: 75,
     arabicName: "الزمر",
-    englishName: "The Groups",
+    englishName: "The Troops",
     revelation: "Meccan",
+    startPage: 458,
   },
   {
     id: 40,
@@ -319,6 +357,7 @@ export const chapters = [
     arabicName: "غافر",
     englishName: "The Forgiver",
     revelation: "Meccan",
+    startPage: 467,
   },
   {
     id: 41,
@@ -327,6 +366,7 @@ export const chapters = [
     arabicName: "فصلت",
     englishName: "Explained in Detail",
     revelation: "Meccan",
+    startPage: 477,
   },
   {
     id: 42,
@@ -335,6 +375,7 @@ export const chapters = [
     arabicName: "الشورى",
     englishName: "The Consultation",
     revelation: "Meccan",
+    startPage: 483,
   },
   {
     id: 43,
@@ -343,6 +384,7 @@ export const chapters = [
     arabicName: "الزخرف",
     englishName: "The Gold Adornments",
     revelation: "Meccan",
+    startPage: 489,
   },
   {
     id: 44,
@@ -351,14 +393,16 @@ export const chapters = [
     arabicName: "الدخان",
     englishName: "The Smoke",
     revelation: "Meccan",
+    startPage: 496,
   },
   {
     id: 45,
     name: "Al-Jathiya",
     verses: 37,
     arabicName: "الجاثية",
-    englishName: "The Crouching",
+    englishName: "The Kneeling",
     revelation: "Meccan",
+    startPage: 499,
   },
   {
     id: 46,
@@ -367,6 +411,7 @@ export const chapters = [
     arabicName: "الأحقاف",
     englishName: "The Wind-Curved Sandhills",
     revelation: "Meccan",
+    startPage: 502,
   },
   {
     id: 47,
@@ -375,6 +420,7 @@ export const chapters = [
     arabicName: "محمد",
     englishName: "Muhammad",
     revelation: "Medinan",
+    startPage: 507,
   },
   {
     id: 48,
@@ -383,6 +429,7 @@ export const chapters = [
     arabicName: "الفتح",
     englishName: "The Victory",
     revelation: "Medinan",
+    startPage: 511,
   },
   {
     id: 49,
@@ -391,15 +438,18 @@ export const chapters = [
     arabicName: "الحجرات",
     englishName: "The Rooms",
     revelation: "Medinan",
+    startPage: 515,
   },
   {
     id: 50,
     name: "Qaf",
     verses: 45,
     arabicName: "ق",
-    englishName: "The Letter Qaf",
+    englishName: "Qaf",
     revelation: "Meccan",
+    startPage: 518,
   },
+
   {
     id: 51,
     name: "Adh-Dhariyat",
@@ -407,6 +457,7 @@ export const chapters = [
     arabicName: "الذاريات",
     englishName: "The Winnowing Winds",
     revelation: "Meccan",
+    startPage: 520,
   },
   {
     id: 52,
@@ -415,6 +466,7 @@ export const chapters = [
     arabicName: "الطور",
     englishName: "The Mount",
     revelation: "Meccan",
+    startPage: 523,
   },
   {
     id: 53,
@@ -423,6 +475,7 @@ export const chapters = [
     arabicName: "النجم",
     englishName: "The Star",
     revelation: "Meccan",
+    startPage: 526,
   },
   {
     id: 54,
@@ -431,6 +484,7 @@ export const chapters = [
     arabicName: "القمر",
     englishName: "The Moon",
     revelation: "Meccan",
+    startPage: 528,
   },
   {
     id: 55,
@@ -439,6 +493,7 @@ export const chapters = [
     arabicName: "الرحمن",
     englishName: "The Beneficent",
     revelation: "Medinan",
+    startPage: 531,
   },
   {
     id: 56,
@@ -447,6 +502,7 @@ export const chapters = [
     arabicName: "الواقعة",
     englishName: "The Inevitable",
     revelation: "Meccan",
+    startPage: 534,
   },
   {
     id: 57,
@@ -455,6 +511,7 @@ export const chapters = [
     arabicName: "الحديد",
     englishName: "The Iron",
     revelation: "Medinan",
+    startPage: 537,
   },
   {
     id: 58,
@@ -463,6 +520,7 @@ export const chapters = [
     arabicName: "المجادلة",
     englishName: "The Pleading Woman",
     revelation: "Medinan",
+    startPage: 542,
   },
   {
     id: 59,
@@ -471,6 +529,7 @@ export const chapters = [
     arabicName: "الحشر",
     englishName: "The Exile",
     revelation: "Medinan",
+    startPage: 545,
   },
   {
     id: 60,
@@ -479,8 +538,8 @@ export const chapters = [
     arabicName: "الممتحنة",
     englishName: "She that is to be examined",
     revelation: "Medinan",
+    startPage: 549,
   },
-
   {
     id: 61,
     name: "As-Saff",
@@ -488,6 +547,7 @@ export const chapters = [
     arabicName: "الصف",
     englishName: "The Ranks",
     revelation: "Medinan",
+    startPage: 551,
   },
   {
     id: 62,
@@ -496,6 +556,7 @@ export const chapters = [
     arabicName: "الجمعة",
     englishName: "The Congregation",
     revelation: "Medinan",
+    startPage: 553,
   },
   {
     id: 63,
@@ -504,6 +565,7 @@ export const chapters = [
     arabicName: "المنافقون",
     englishName: "The Hypocrites",
     revelation: "Medinan",
+    startPage: 554,
   },
   {
     id: 64,
@@ -512,6 +574,7 @@ export const chapters = [
     arabicName: "التغابن",
     englishName: "The Mutual Disillusion",
     revelation: "Medinan",
+    startPage: 556,
   },
   {
     id: 65,
@@ -520,6 +583,7 @@ export const chapters = [
     arabicName: "الطلاق",
     englishName: "The Divorce",
     revelation: "Medinan",
+    startPage: 558,
   },
   {
     id: 66,
@@ -528,6 +592,7 @@ export const chapters = [
     arabicName: "التحريم",
     englishName: "The Prohibition",
     revelation: "Medinan",
+    startPage: 560,
   },
   {
     id: 67,
@@ -536,6 +601,7 @@ export const chapters = [
     arabicName: "الملك",
     englishName: "The Sovereignty",
     revelation: "Meccan",
+    startPage: 562,
   },
   {
     id: 68,
@@ -544,6 +610,7 @@ export const chapters = [
     arabicName: "القلم",
     englishName: "The Pen",
     revelation: "Meccan",
+    startPage: 564,
   },
   {
     id: 69,
@@ -552,6 +619,7 @@ export const chapters = [
     arabicName: "الحاقة",
     englishName: "The Reality",
     revelation: "Meccan",
+    startPage: 566,
   },
   {
     id: 70,
@@ -560,6 +628,7 @@ export const chapters = [
     arabicName: "المعارج",
     englishName: "The Ascending Stairways",
     revelation: "Meccan",
+    startPage: 568,
   },
   {
     id: 71,
@@ -568,6 +637,7 @@ export const chapters = [
     arabicName: "نوح",
     englishName: "Noah",
     revelation: "Meccan",
+    startPage: 570,
   },
   {
     id: 72,
@@ -576,6 +646,7 @@ export const chapters = [
     arabicName: "الجن",
     englishName: "The Jinn",
     revelation: "Meccan",
+    startPage: 572,
   },
   {
     id: 73,
@@ -584,6 +655,7 @@ export const chapters = [
     arabicName: "المزمل",
     englishName: "The Enshrouded One",
     revelation: "Meccan",
+    startPage: 574,
   },
   {
     id: 74,
@@ -592,6 +664,7 @@ export const chapters = [
     arabicName: "المدثر",
     englishName: "The Cloaked One",
     revelation: "Meccan",
+    startPage: 575,
   },
   {
     id: 75,
@@ -600,14 +673,16 @@ export const chapters = [
     arabicName: "القيامة",
     englishName: "The Resurrection",
     revelation: "Meccan",
+    startPage: 577,
   },
   {
     id: 76,
     name: "Al-Insan",
     verses: 31,
-    arabicName: "الانسان",
+    arabicName: "الإنسان",
     englishName: "Man",
     revelation: "Medinan",
+    startPage: 578,
   },
   {
     id: 77,
@@ -616,6 +691,7 @@ export const chapters = [
     arabicName: "المرسلات",
     englishName: "The Emissaries",
     revelation: "Meccan",
+    startPage: 580,
   },
   {
     id: 78,
@@ -624,6 +700,7 @@ export const chapters = [
     arabicName: "النبأ",
     englishName: "The Tidings",
     revelation: "Meccan",
+    startPage: 582,
   },
   {
     id: 79,
@@ -632,15 +709,18 @@ export const chapters = [
     arabicName: "النازعات",
     englishName: "Those who drag forth",
     revelation: "Meccan",
+    startPage: 583,
   },
   {
     id: 80,
     name: "Abasa",
     verses: 42,
     arabicName: "عبس",
-    englishName: "He Frowned",
+    englishName: "He frowned",
     revelation: "Meccan",
+    startPage: 585,
   },
+
   {
     id: 81,
     name: "At-Takwir",
@@ -648,6 +728,7 @@ export const chapters = [
     arabicName: "التكوير",
     englishName: "The Overthrowing",
     revelation: "Meccan",
+    startPage: 586,
   },
   {
     id: 82,
@@ -656,14 +737,16 @@ export const chapters = [
     arabicName: "الإنفطار",
     englishName: "The Cleaving",
     revelation: "Meccan",
+    startPage: 587,
   },
   {
     id: 83,
     name: "Al-Mutaffifin",
     verses: 36,
     arabicName: "المطففين",
-    englishName: "Defrauding",
+    englishName: "The Defrauding",
     revelation: "Meccan",
+    startPage: 587,
   },
   {
     id: 84,
@@ -672,6 +755,7 @@ export const chapters = [
     arabicName: "الإنشقاق",
     englishName: "The Splitting Open",
     revelation: "Meccan",
+    startPage: 589,
   },
   {
     id: 85,
@@ -680,6 +764,7 @@ export const chapters = [
     arabicName: "البروج",
     englishName: "The Mansions of the Stars",
     revelation: "Meccan",
+    startPage: 590,
   },
   {
     id: 86,
@@ -688,6 +773,7 @@ export const chapters = [
     arabicName: "الطارق",
     englishName: "The Morning Star",
     revelation: "Meccan",
+    startPage: 591,
   },
   {
     id: 87,
@@ -696,6 +782,7 @@ export const chapters = [
     arabicName: "الأعلى",
     englishName: "The Most High",
     revelation: "Meccan",
+    startPage: 591,
   },
   {
     id: 88,
@@ -704,6 +791,7 @@ export const chapters = [
     arabicName: "الغاشية",
     englishName: "The Overwhelming",
     revelation: "Meccan",
+    startPage: 592,
   },
   {
     id: 89,
@@ -712,6 +800,7 @@ export const chapters = [
     arabicName: "الفجر",
     englishName: "The Dawn",
     revelation: "Meccan",
+    startPage: 593,
   },
   {
     id: 90,
@@ -720,6 +809,7 @@ export const chapters = [
     arabicName: "البلد",
     englishName: "The City",
     revelation: "Meccan",
+    startPage: 594,
   },
   {
     id: 91,
@@ -728,6 +818,7 @@ export const chapters = [
     arabicName: "الشمس",
     englishName: "The Sun",
     revelation: "Meccan",
+    startPage: 595,
   },
   {
     id: 92,
@@ -736,6 +827,7 @@ export const chapters = [
     arabicName: "الليل",
     englishName: "The Night",
     revelation: "Meccan",
+    startPage: 595,
   },
   {
     id: 93,
@@ -744,6 +836,7 @@ export const chapters = [
     arabicName: "الضحى",
     englishName: "The Morning Brightness",
     revelation: "Meccan",
+    startPage: 596,
   },
   {
     id: 94,
@@ -752,6 +845,7 @@ export const chapters = [
     arabicName: "الشرح",
     englishName: "The Relief",
     revelation: "Meccan",
+    startPage: 596,
   },
   {
     id: 95,
@@ -760,6 +854,7 @@ export const chapters = [
     arabicName: "التين",
     englishName: "The Fig",
     revelation: "Meccan",
+    startPage: 597,
   },
   {
     id: 96,
@@ -768,6 +863,7 @@ export const chapters = [
     arabicName: "العلق",
     englishName: "The Clot",
     revelation: "Meccan",
+    startPage: 597,
   },
   {
     id: 97,
@@ -776,6 +872,7 @@ export const chapters = [
     arabicName: "القدر",
     englishName: "The Power",
     revelation: "Meccan",
+    startPage: 598,
   },
   {
     id: 98,
@@ -784,6 +881,7 @@ export const chapters = [
     arabicName: "البينة",
     englishName: "The Clear Proof",
     revelation: "Medinan",
+    startPage: 598,
   },
   {
     id: 99,
@@ -792,6 +890,7 @@ export const chapters = [
     arabicName: "الزلزلة",
     englishName: "The Earthquake",
     revelation: "Medinan",
+    startPage: 599,
   },
   {
     id: 100,
@@ -800,15 +899,16 @@ export const chapters = [
     arabicName: "العاديات",
     englishName: "The Courser",
     revelation: "Meccan",
+    startPage: 599,
   },
-
   {
     id: 101,
-    name: "Al-Qari'a",
+    name: "Al-Qaria",
     verses: 11,
     arabicName: "القارعة",
     englishName: "The Calamity",
     revelation: "Meccan",
+    startPage: 600,
   },
   {
     id: 102,
@@ -817,6 +917,7 @@ export const chapters = [
     arabicName: "التكاثر",
     englishName: "The Rivalry in world increase",
     revelation: "Meccan",
+    startPage: 600,
   },
   {
     id: 103,
@@ -825,6 +926,7 @@ export const chapters = [
     arabicName: "العصر",
     englishName: "The Declining Day",
     revelation: "Meccan",
+    startPage: 601,
   },
   {
     id: 104,
@@ -833,6 +935,7 @@ export const chapters = [
     arabicName: "الهمزة",
     englishName: "The Traducer",
     revelation: "Meccan",
+    startPage: 601,
   },
   {
     id: 105,
@@ -841,6 +944,7 @@ export const chapters = [
     arabicName: "الفيل",
     englishName: "The Elephant",
     revelation: "Meccan",
+    startPage: 601,
   },
   {
     id: 106,
@@ -849,6 +953,7 @@ export const chapters = [
     arabicName: "قريش",
     englishName: "Quraish",
     revelation: "Meccan",
+    startPage: 602,
   },
   {
     id: 107,
@@ -857,6 +962,7 @@ export const chapters = [
     arabicName: "الماعون",
     englishName: "The Small Kindnesses",
     revelation: "Meccan",
+    startPage: 602,
   },
   {
     id: 108,
@@ -865,6 +971,7 @@ export const chapters = [
     arabicName: "الكوثر",
     englishName: "The Abundance",
     revelation: "Meccan",
+    startPage: 602,
   },
   {
     id: 109,
@@ -873,6 +980,7 @@ export const chapters = [
     arabicName: "الكافرون",
     englishName: "The Disbelievers",
     revelation: "Meccan",
+    startPage: 603,
   },
   {
     id: 110,
@@ -881,6 +989,7 @@ export const chapters = [
     arabicName: "النصر",
     englishName: "The Divine Support",
     revelation: "Medinan",
+    startPage: 603,
   },
   {
     id: 111,
@@ -889,6 +998,7 @@ export const chapters = [
     arabicName: "المسد",
     englishName: "The Palm Fiber",
     revelation: "Meccan",
+    startPage: 603,
   },
   {
     id: 112,
@@ -897,6 +1007,7 @@ export const chapters = [
     arabicName: "الإخلاص",
     englishName: "The Sincerity",
     revelation: "Meccan",
+    startPage: 604,
   },
   {
     id: 113,
@@ -905,6 +1016,7 @@ export const chapters = [
     arabicName: "الفلق",
     englishName: "The Daybreak",
     revelation: "Meccan",
+    startPage: 604,
   },
   {
     id: 114,
@@ -913,5 +1025,6 @@ export const chapters = [
     arabicName: "الناس",
     englishName: "The Mankind",
     revelation: "Meccan",
+    startPage: 604,
   },
 ];

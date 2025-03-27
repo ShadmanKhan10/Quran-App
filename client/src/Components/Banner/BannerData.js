@@ -1,4 +1,6 @@
 import bannerImg1 from "../../assets/BannerZakat.png";
+import bannerImg2 from "../../assets/dua.png";
+import bannerImg3 from "../../assets/sand.png";
 
 export const BannerData = [
   {
@@ -7,13 +9,13 @@ export const BannerData = [
     imgSrc: bannerImg1,
   },
   {
-    heading: "Pay Zakat Fitra",
+    heading: "Do Dhikr",
     subheading: "Complete your Ramadan with Al-Quran",
-    imgSrc: bannerImg1,
+    imgSrc: bannerImg2,
   },
   {
-    heading: "Pay Zakat Fitra",
+    heading: "Read Prophet stories",
     subheading: "Complete your Ramadan with Al-Quran",
-    imgSrc: bannerImg1,
+    imgSrc: bannerImg3,
   },
 ];

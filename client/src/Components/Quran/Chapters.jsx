@@ -9,11 +9,15 @@ export default function Chapters({
   revelation,
   verses,
   isJuzActive,
+  isPageActive,
+  startPage,
 }) {
   const navigate = useNavigate();
   const handleChapterNavigation = () => {
     const newChapterName = name;
-    navigate(`/quran/${newChapterName}/${id}`);
+    isPageActive
+      ? navigate(`/quran/${newChapterName}/${id}/${startPage}`)
+      : navigate(`/quran/${newChapterName}/${id}`);
   };
   return (
     <div className="chapter-container" onClick={handleChapterNavigation}>
@@ -31,7 +35,9 @@ export default function Chapters({
       </div>
       <div className="chapter-right-container">
         <p className="chapter-arabic-name">{arabicName}</p>
-        {/* <p className="chapter-english-name">{englishName}</p> */}
+        {isPageActive && (
+          <p className="chapter-start-page">Page: {startPage}</p>
+        )}
       </div>
     </div>
   );
