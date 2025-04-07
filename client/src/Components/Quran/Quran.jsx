@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Quran.css";
 import { chapters } from "./DATA/ChaptersData";
 import { juzs } from "./DATA/JuzData";
@@ -6,12 +6,14 @@ import Navbar from "../Navbar/Navbar";
 import Chapters from "./Chapters";
 import search from "../../assets/search.png";
 import menu from "../../assets/menu.png";
+import close from "../../assets/close.png";
 
 export default function Quran() {
   const [isChapterActive, setIsChapterActive] = useState(true);
   const [isJuzActive, setIsJuzActive] = useState(false);
   const [isPageActive, setIsPageActive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [audioFileSrc, setAudioFileSrc] = useState("");
 
   const displayChapters = () => {
     setIsChapterActive(true);
@@ -53,6 +55,7 @@ export default function Quran() {
             normalizeText(juz.name).includes(normalizeText(searchQuery)) ||
             normalizeText(juz.arabicName).includes(normalizeText(searchQuery))
         );
+
   return (
     <>
       <div className="quran-service-container">
@@ -107,6 +110,24 @@ export default function Quran() {
         </div>
 
         <div>
+          {audioFileSrc && (
+            <div className="audio-container">
+              <img
+                onClick={() => setAudioFileSrc("")}
+                src={close}
+                alt="close"
+                className="close-img"
+              />
+              <audio
+                key={audioFileSrc}
+                id="quran-audio"
+                className="audio-tag"
+                controls
+              >
+                <source src={audioFileSrc} type="audio/mpeg" />
+              </audio>
+            </div>
+          )}
           {filteredData.length > 0 ? (
             filteredData.map((item) => (
               <Chapters
@@ -120,6 +141,8 @@ export default function Quran() {
                 startPage={item.startPage}
                 isJuzActive={isJuzActive}
                 isPageActive={isPageActive}
+                isChapterActive={isChapterActive}
+                setAudioFileSrc={setAudioFileSrc}
               />
             ))
           ) : (

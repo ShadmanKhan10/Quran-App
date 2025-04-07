@@ -43,6 +43,98 @@
   cursor: pointer;
   color: white;
 }
+.audio-container {
+  width: 100%;
+  height: 4rem;
+  position: fixed;
+  bottom: 4rem;
+  left: 0;
+  z-index: 50;
+  /* border: 1px solid red; */
+  text-align: center;
+}
+.close-img {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  z-index: 51;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+/* .audio-tag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+} */
+
+.audio-tag {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  height: 50px;
+  outline: none;
+  border: none;
+  overflow: hidden;
+}
+
+/* Background color for the audio player */
+.audio-tag::-webkit-media-controls-panel {
+  background: rgba(120, 85, 70, 255);
+  color: white !important;
+}
+
+/* Make play/pause button white */
+.audio-tag::-webkit-media-controls-play-button {
+  filter: invert(1);
+}
+
+/* Make time display (current time & duration) white */
+.audio-tag::-webkit-media-controls-current-time-display,
+.audio-tag::-webkit-media-controls-time-remaining-display {
+  color: white !important;
+}
+
+/* Make progress bar white */
+.audio-tag::-webkit-media-controls-timeline {
+  filter: invert(1);
+}
+
+/* Make volume slider white */
+.audio-tag::-webkit-media-controls-volume-slider {
+  filter: invert(1);
+}
+
+/* Make volume slider track & thumb white */
+.audio-tag::-webkit-media-controls-volume-slider-container {
+  filter: invert(1);
+}
+
+.audio-tag::-webkit-media-controls-mute-button {
+  filter: invert(1);
+}
+
+/* Make the three-dot menu (settings) white */
+.audio-tag::-webkit-media-controls-overflow-button {
+  filter: invert(1);
+  opacity: 1;
+  mix-blend-mode: difference;
+}
+
+/* Extra fix for volume controls */
+.audio-tag::-webkit-media-controls-volume-slider-container {
+  filter: invert(1);
+}
+
+/* Firefox Specific Styles */
+.audio-tag::-moz-range-track,
+.audio-tag::-moz-range-thumb {
+  filter: invert(1);
+}
 
 .chapter-container {
   /* border-bottom: 0.5px solid black; */
@@ -58,6 +150,7 @@
   /* background-color: rgb(251, 241, 225); */
   border-radius: 10px;
 }
+
 .chaper-no-container {
   /* border: 1px solid blue; */
   width: 2.2rem;
@@ -85,6 +178,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 100%;
 }
 .chaper-details-container {
   display: flex;
@@ -96,6 +190,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
+}
+.play-button-container {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.play-button,
+.load-animation {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 .chapter-name,
 .chapter-verse-revelation,
@@ -343,19 +449,14 @@
   height: 3rem;
 }
 .bismillah-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  margin: 1rem;
+  width: 100%;
   height: 4rem;
-  background-color: orangered;
+  margin-top: 1rem;
 }
 .bismillah {
-  font-size: 2.2rem;
-  font-weight: bold;
-  /* font-family: "Amiri Quran"; */
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* GPT CSS */
@@ -407,4 +508,12 @@
 }
 .currpage-no {
   font-size: 1.5rem;
+}
+.skeleton-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  gap: 1rem;
 }

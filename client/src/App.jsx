@@ -5,21 +5,29 @@ import Quran from "./Components/Quran/Quran";
 import Home from "./Components/Home/Home";
 import SpecifChapter from "./Components/Quran/SpecifChapter";
 import SpecificPage from "./Components/Quran/SpecificPage";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Dua from "./Components/Dua/Dua";
+import Dhikr from "./Components/Dhikr/Dhikr";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/quran" element={<Quran />} />
-          <Route path="/quran/:chapterType/:id" element={<SpecifChapter />} />
-          <Route
-            path="/quran/:chapterType/:id/:startPage"
-            element={<SpecificPage />}
-          />
-        </Routes>
-      </BrowserRouter>
+      <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f5f5f5">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/quran" element={<Quran />} />
+            <Route path="/quran/:chapterType/:id" element={<SpecifChapter />} />
+            <Route
+              path="/quran/:chapterType/:id/:startPage"
+              element={<SpecificPage />}
+            />
+            <Route path="/dua" element={<Dua />} />
+            <Route path="/dhikr" element={<Dhikr />} />
+          </Routes>
+        </BrowserRouter>
+      </SkeletonTheme>
     </>
   );
 }
