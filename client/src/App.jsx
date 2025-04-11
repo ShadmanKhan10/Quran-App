@@ -9,6 +9,10 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Dua from "./Components/Dua/Dua";
 import Dhikr from "./Components/Dhikr/Dhikr";
+import Prayer from "./Components/Prayer/Prayer";
+import Navbar from "./Components/Navbar/Navbar";
+import Zakat from "./Components/Zakat/Zakat";
+import PrayerType from "./Components/Prayer/PrayerType";
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
             />
             <Route path="/dua" element={<Dua />} />
             <Route path="/dhikr" element={<Dhikr />} />
+            <Route path="/prayer" element={<Prayer />} />
+            <Route path="/prayer/:prayerType" element={<PrayerType />} />
+            <Route path="/zakat" element={<Zakat />} />
           </Routes>
+          <Navbar />
         </BrowserRouter>
       </SkeletonTheme>
     </>

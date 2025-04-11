@@ -4,6 +4,8 @@ import sleep from "../../../assets/BeforeSleep.jpg";
 import illness from "../../../assets/illness.jpg";
 import beforeSalah from "../../../assets/beforeSalah.jpg";
 import afterSalah from "../../../assets/afterSalah.jpg";
+import praises from "../../../assets/praises.png";
+import salahwat from "../../../assets/salahwat.png";
 
 export const wideImages = [
   { source: morning, name: "Morning" },
@@ -14,4 +16,9 @@ export const wideImages = [
 export const halfImages = [
   { source: beforeSalah, name: "Before Salah" },
   { source: afterSalah, name: "After Salah" },
+];
+
+export const halfImages2 = [
+  { source: praises, name: "Praises of Allah" },
+  { source: salahwat, name: "Salahwat" },
 ];

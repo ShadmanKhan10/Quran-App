@@ -150,7 +150,7 @@ export default function Quran() {
           )}
         </div>
       </div>
-      <Navbar />
+      {/* <Navbar /> */}
     </>
   );
 }

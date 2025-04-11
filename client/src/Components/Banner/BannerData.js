@@ -1,6 +1,10 @@
 import bannerImg1 from "../../assets/BannerZakat.png";
 import bannerImg2 from "../../assets/dua.png";
 import bannerImg3 from "../../assets/sand.png";
+import recite from "../../assets/recite.png";
+import bath from "../../assets/bath.png";
+import scroll from "../../assets/scroll.png";
+import sujud from "../../assets/sujud.png";
 
 export const BannerData = [
   {
@@ -17,5 +21,43 @@ export const BannerData = [
     heading: "Read Prophet stories",
     subheading: "Complete your Ramadan with Al-Quran",
     imgSrc: bannerImg3,
+  },
+];
+
+export const ZakatBannerData = [
+  {
+    heading: "Pay Zakat Fitra",
+    subheading: "Complete your Ramadan with Al-Quran",
+    imgSrc: bannerImg1,
+  },
+];
+
+export const KalimaBannerData = [
+  {
+    heading: "Recite Kalimas",
+    subheading: "Complete your Ramadan with Al-Quran",
+    imgSrc: recite,
+  },
+];
+
+export const PurifcationBannerData = [
+  {
+    heading: "Purification Methods",
+    subheading: "Complete your Ramadan with Al-Quran",
+    imgSrc: bath,
+  },
+];
+export const PrayerConcernBannerData = [
+  {
+    heading: "Primary Concerns",
+    subheading: "Know the importance of prayers",
+    imgSrc: scroll,
+  },
+];
+export const DifferentPrayerBannerData = [
+  {
+    heading: "Different Salah",
+    subheading: "Perform salah the right way",
+    imgSrc: sujud,
   },
 ];

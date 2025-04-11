@@ -41,6 +41,19 @@
   width: 90%; /* Ensures it remains full width */
   scroll-snap-align: start; /* Optional: Helps with snapping */
 }
+.zakat-carousel {
+  flex: 0 0 90%; /* Ensures the carousel takes full width */
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: black;
+  border-radius: 8px;
+  height: 5rem;
+  width: 100%; /* Ensures it remains full width */
+  scroll-snap-align: start; /* Optional: Helps with snapping */
+}
 
 .banner-events-text {
   padding: 0;

@@ -1316,4 +1316,4 @@ export const duasList = [
   },
 ];
 
-export default duasList;
+// export default duasList;
