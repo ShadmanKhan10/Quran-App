@@ -5,6 +5,7 @@ import recite from "../../assets/recite.png";
 import bath from "../../assets/bath.png";
 import scroll from "../../assets/scroll.png";
 import sujud from "../../assets/sujud.png";
+import books from "../../assets/books.png";
 
 export const BannerData = [
   {
@@ -29,6 +30,14 @@ export const ZakatBannerData = [
     heading: "Pay Zakat Fitra",
     subheading: "Complete your Ramadan with Al-Quran",
     imgSrc: bannerImg1,
+  },
+];
+
+export const HadithBannerData = [
+  {
+    heading: "Hadith, The teachings of Prophet",
+    subheading: "Complete your Ramadan with Al-Quran",
+    imgSrc: books,
   },
 ];
 

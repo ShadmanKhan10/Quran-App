@@ -517,3 +517,24 @@
   margin-right: 1.5rem;
   gap: 1rem;
 }
+.pagination-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.paginate-button {
+  background-color: transparent;
+  border: 0.7px solid black;
+  border-radius: 0.3rem;
+  height: 2.5rem;
+  width: 4rem;
+  font-size: 1rem;
+}
+.current-page-label {
+  font-size: 1.1rem;
+}
+.quran-pagination {
+  margin-top: 1.5rem;
+  margin-bottom: 4.5rem;
+}

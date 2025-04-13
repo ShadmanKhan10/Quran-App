@@ -13,6 +13,10 @@ import Prayer from "./Components/Prayer/Prayer";
 import Navbar from "./Components/Navbar/Navbar";
 import Zakat from "./Components/Zakat/Zakat";
 import PrayerType from "./Components/Prayer/PrayerType";
+import Hadith from "./Components/Hadith/Hadith";
+import HadithChapters from "./Components/Hadith/HadithChapters";
+import SelectedChapter from "./Components/Hadith/SelectedChapter";
+import SingleHadith from "./Components/Hadith/SingleHadith";
 
 function App() {
   return (
@@ -32,6 +36,16 @@ function App() {
             <Route path="/prayer" element={<Prayer />} />
             <Route path="/prayer/:prayerType" element={<PrayerType />} />
             <Route path="/zakat" element={<Zakat />} />
+            <Route path="/hadith" element={<Hadith />} />
+            <Route path="/hadith/:hadithBooks" element={<HadithChapters />} />
+            <Route
+              path="/hadith/:hadithBooks/:chapterName"
+              element={<SelectedChapter />}
+            />
+            <Route
+              path="/hadith/:hadithBooks/hadith/:hadithNumber"
+              element={<SingleHadith />}
+            />
           </Routes>
           <Navbar />
         </BrowserRouter>

@@ -1,69 +1,6 @@
-// import axios from "axios";
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-
-// export default function SpecifPage() {
-//   const { startPage } = useParams();
-//   const [ayahs, setAyahs] = useState([]); // Store verses in state
-
-//   useEffect(() => {
-//     const getPageDetails = async () => {
-//       try {
-//         const response = await axios.get(
-//           `http://api.alquran.cloud/v1/page/${startPage}/quran-uthmani`
-//         );
-
-//         // Extract ayahs from response
-//         if (response.data?.data?.ayahs) {
-//           setAyahs(response.data.data.ayahs);
-//         }
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-//     getPageDetails();
-//   }, [startPage]);
-
-//   return (
-//     <>
-//       <div>
-//         {ayahs.map((ayah, index) => {
-//           const specialPhrase = "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ";
-
-//           const startsWithBismillah = ayah.text.startsWith(specialPhrase);
-//           const restOfVerse = startsWithBismillah
-//             ? ayah.text.slice(specialPhrase.length).trim()
-//             : ayah.text;
-
-//           return (
-//             <div key={ayah.number} className="verse-container-read">
-//               <div className="arabic-verse-container-read">
-//                 <div className="arabic-txt-readnumber-c">
-//                   <p className="arabic-text-readnumber">{index + 1}</p>
-//                 </div>
-//                 <div className="arabic-txt-readverse-c">
-//                   <p className="arabic-text-read">
-//                     {startsWithBismillah && (
-//                       <span className="bismillah-text-read">
-//                         {specialPhrase}
-//                       </span>
-//                     )}
-//                     {restOfVerse && ` ${restOfVerse}`}
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </>
-//   );
-// }
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import changePage from "../../assets/changePage.png";
 
 export default function SpecifPage() {
   const { startPage } = useParams();
@@ -83,7 +20,7 @@ export default function SpecifPage() {
         const response = await axios.get(
           `http://api.alquran.cloud/v1/page/${currPage}/quran-uthmani`
         );
-        setVerses(response.data.data.ayahs); // Storing the list of ayahs
+        setVerses(response.data.data.ayahs);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -101,20 +38,22 @@ export default function SpecifPage() {
           </span>
         ))}
       </div>
-      <div className="next-container">
-        <img
-          src={changePage}
-          alt="prev"
-          className="prev-img"
+      <div className="pagination-cont quran-pagination">
+        <button
+          className="paginate-button"
           onClick={handlePrev}
-        />
-        <p className="currpage-no">{currPage}</p>
-        <img
-          src={changePage}
-          alt="next"
-          className="next-img"
+          disabled={currPage === 1}
+        >
+          Prev
+        </button>
+        <label className="current-page-label">{currPage}</label>
+        <button
+          className="paginate-button"
           onClick={handleNext}
-        />
+          disabled={currPage === 604}
+        >
+          Next
+        </button>
       </div>
     </>
   );
