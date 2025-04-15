@@ -8,6 +8,7 @@ export default function SelectedChapter() {
   const { hadithBooks, chapterName } = useParams();
   const location = useLocation();
   const { chapterNumber } = location.state || {};
+  const HADITH_API_KEY = import.meta.env.VITE_HADITH_API_KEY;
 
   const [chapterData, setChapterData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ export default function SelectedChapter() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://hadithapi.com/public/api/hadiths?apiKey=$2y$10$SBbVPBu1kl0UcFyd4en5OysbgbKUCwEhONDmicYSOEsBF1DwKWC&book=${hadithBooks}&chapter=${chapterNumber}&page=${page}`
+        `https://hadithapi.com/public/api/hadiths?apiKey=${HADITH_API_KEY}&book=${hadithBooks}&chapter=${chapterNumber}&page=${page}`
       );
       console.log(response);
       setTotalPages(response.data.hadiths.last_page);
@@ -46,6 +47,7 @@ export default function SelectedChapter() {
           {totalHadiths || "Laoding"} ahadith in this Chapter
         </p>
       </div>
+      {loading && <p>Loading</p>}
       {chapterData.map((hadith, index) => (
         <div key={index} className="single-hadith-container">
           {/* <h1 className="hadith-english-heading">{hadith.headingEnglish}</h1> */}
@@ -87,6 +89,7 @@ export default function SelectedChapter() {
           </button>
         </div>
       )}
+         
     </div>
   );
 }

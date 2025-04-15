@@ -3,11 +3,14 @@ import { duasList } from "./DATA/DuaList";
 import Navbar from "../Navbar/Navbar";
 import dua from "../../assets/dua.png";
 import "./Dua.css";
+import Banner from "../Banner/Banner";
+import { DuaBannerData } from "../Banner/BannerData";
 
 export default function Dua() {
   const [selectedMood, setSelectedMood] = useState(null);
   return (
     <>
+      <Banner BannerData={DuaBannerData} />
       <div className="dua-container">
         <h1 className="heading-dua-text">Find peace in every moment</h1>
         <div className="subheading-dua-container">

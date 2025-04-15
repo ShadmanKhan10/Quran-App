@@ -17,6 +17,7 @@ import Hadith from "./Components/Hadith/Hadith";
 import HadithChapters from "./Components/Hadith/HadithChapters";
 import SelectedChapter from "./Components/Hadith/SelectedChapter";
 import SingleHadith from "./Components/Hadith/SingleHadith";
+import DhikrTime from "./Components/Dhikr/DhikrTime";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             />
             <Route path="/dua" element={<Dua />} />
             <Route path="/dhikr" element={<Dhikr />} />
+            <Route path="/dhikr/:time" element={<DhikrTime />} />
             <Route path="/prayer" element={<Prayer />} />
             <Route path="/prayer/:prayerType" element={<PrayerType />} />
             <Route path="/zakat" element={<Zakat />} />

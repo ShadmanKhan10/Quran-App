@@ -10,6 +10,7 @@ export default function HadithChapters() {
   const [loading, setLoading] = useState(false);
   const [chapters, setChapters] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const HADITH_API_KEY = import.meta.env.VITE_HADITH_API_KEY;
 
   const navigate = useNavigate();
 
@@ -17,8 +18,9 @@ export default function HadithChapters() {
     const fetchChaptersName = async () => {
       setLoading(true);
       try {
+        console.log("API KEY", HADITH_API_KEY);
         const response = await axios.get(
-          `https://hadithapi.com/api/${hadithBooks}/chapters?apiKey=$2y$10$L8kMgQzxm2IBTuoc9CODTOoZ25BLV7a3lrr2VTgqplEQXNfYGK3XS`
+          `https://hadithapi.com/api/${hadithBooks}/chapters?apiKey=${HADITH_API_KEY}`
         );
         setChapters(response.data.chapters);
       } catch (error) {
@@ -39,8 +41,6 @@ export default function HadithChapters() {
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
-  if (loading) return <p>loading</p>;
 
   return (
     <>
@@ -67,6 +67,7 @@ export default function HadithChapters() {
             </div>
           </div>
         </div>
+        {loading && <p>loading</p>}
         <div className="chap-cont">
           {chapters
             .filter(
@@ -93,6 +94,7 @@ export default function HadithChapters() {
             ))}
         </div>
       </div>
+          
     </>
   );
 }
