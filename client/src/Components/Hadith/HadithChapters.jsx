@@ -94,6 +94,7 @@ export default function HadithChapters() {
             ))}
         </div>
       </div>
+          
     </>
   );
 }

@@ -20,6 +20,7 @@ export default function WideImages({ wideImages }) {
           <p className="image-name">{image.name}</p>
         </div>
       ))}
+          
     </>
   );
 }

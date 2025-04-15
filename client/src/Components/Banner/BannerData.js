@@ -6,7 +6,7 @@ import bath from "../../assets/bath.png";
 import scroll from "../../assets/scroll.png";
 import sujud from "../../assets/sujud.png";
 import books from "../../assets/books.png";
-import duaIcon from "../../assets/muslim.png";
+import duaIcon from "../../assets/muslims.png";
 
 export const BannerData = [
   {
@@ -71,6 +71,7 @@ export const DifferentPrayerBannerData = [
     imgSrc: sujud,
   },
 ];
+
 export const DuaBannerData = [
   {
     heading: "Different Salah",
