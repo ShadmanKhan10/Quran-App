@@ -8,13 +8,14 @@ export default function SingleHadith() {
   const { hadithBooks, hadithNumber } = useParams();
   const [loading, setLoading] = useState(false);
   const [chapterData, setChapterData] = useState([]);
+  const HADITH_API_KEY = import.meta.env.VITE_HADITH_API_KEY;
 
   useEffect(() => {
     const fetchChaptersName = async () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `https://hadithapi.com/public/api/hadiths?apiKey=$2y$10$SBbVPBu1kl0UcFyd4en5OysbgbKUCwEhONDmicYSOEsBF1DwKWC&hadithNumber=${hadithNumber}&book=${hadithBooks}`
+          `https://hadithapi.com/public/api/hadiths?apiKey=${HADITH_API_KEY}&hadithNumber=${hadithNumber}&book=${hadithBooks}`
         );
         setChapterData(response.data.hadiths.data);
       } catch (error) {

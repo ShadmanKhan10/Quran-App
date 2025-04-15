@@ -97,3 +97,30 @@ export const bukhari = [
   { startPage: 279, endPage: 283, startHadith: 7268, endHadith: 7370 },
   { startPage: 283, endPage: 290, startHadith: 7371, endHadith: 7563 },
 ];
+
+export const hadithBooks = [
+  {
+    name: "Sahih Bukhari",
+    slug: "sahih-bukhari",
+  },
+  {
+    name: "Sahih Muslim",
+    slug: "sahih-muslim",
+  },
+  {
+    name: "Al Tirmidhi",
+    slug: "al-tirmidhi",
+  },
+  {
+    name: "Abu Dawood",
+    slug: "abu-dawood",
+  },
+  {
+    name: "Ibn-e-Majah",
+    slug: "ibn-e-majah",
+  },
+  {
+    name: "Sunan Nasai",
+    slug: "sunan-nasai",
+  },
+];
