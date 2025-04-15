@@ -18,7 +18,6 @@ export default function HadithChapters() {
     const fetchChaptersName = async () => {
       setLoading(true);
       try {
-        console.log("API KEY", HADITH_API_KEY);
         const response = await axios.get(
           `https://hadithapi.com/api/${hadithBooks}/chapters?apiKey=${HADITH_API_KEY}`
         );

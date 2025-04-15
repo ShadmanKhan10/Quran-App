@@ -18,6 +18,8 @@ import HadithChapters from "./Components/Hadith/HadithChapters";
 import SelectedChapter from "./Components/Hadith/SelectedChapter";
 import SingleHadith from "./Components/Hadith/SingleHadith";
 import DhikrTime from "./Components/Dhikr/DhikrTime";
+import ProphetStories from "./Components/Stories/ProphetStories";
+import Stories from "./Components/Stories/Stories";
 
 function App() {
   return (
@@ -49,7 +51,10 @@ function App() {
               path="/hadith/:hadithBooks/hadith/:hadithNumber"
               element={<SingleHadith />}
             />
+            <Route path="/stories" element={<Stories />} />
+            <Route path="/stories/:prophetName" element={<ProphetStories />} />
           </Routes>
+
           <Navbar />
         </BrowserRouter>
       </SkeletonTheme>
