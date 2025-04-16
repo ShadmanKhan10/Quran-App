@@ -16,6 +16,7 @@
   background-color: white;
   z-index: 1001;
   background-color: rgba(255, 250, 245, 255);
+  overflow-y: scroll;
 }
 .sidebar-banner-img-container {
   width: 100%;

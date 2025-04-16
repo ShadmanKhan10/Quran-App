@@ -10,13 +10,12 @@ export default function WideImages({ wideImages }) {
   return (
     <div className="dhikr-container">
       {wideImages.map((image) => (
-        <div className="wide-images-container" key={image.name}>
-          <img
-            src={image.source}
-            alt={image.name}
-            className="dhikr-images"
-            onClick={() => handleNavigation(image.name)}
-          />
+        <div
+          className="wide-images-container"
+          key={image.name}
+          onClick={() => handleNavigation(image.name)}
+        >
+          <img src={image.source} alt={image.name} className="dhikr-images" />
           <p className="image-name">{image.name}</p>
         </div>
       ))}
