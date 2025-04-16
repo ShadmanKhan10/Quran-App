@@ -11,6 +11,9 @@ export default function Dhikr() {
       <div className="hadith-animation-banner">
         <Lottie className="load-animation" animationData={dhikrAnimation} />
       </div>
+      <p className="dhikr-description">
+        Verily, in the remembrance of Allah do hearts find rest [13:28]
+      </p>
       <WideImages wideImages={dhikrInfo} />
     </div>
   );

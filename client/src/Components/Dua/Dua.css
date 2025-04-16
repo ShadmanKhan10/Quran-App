@@ -35,6 +35,22 @@
   height: 1.2rem;
   object-fit: contain;
 }
+.dropdown-container {
+  text-align: right;
+}
+.mood-need-dropdown {
+  width: 8rem;
+  height: 2rem;
+  outline: none;
+  border-radius: 0.3rem;
+  margin: 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 0.5px solid black;
+}
+.select-options {
+  font-size: 0.7rem;
+}
 .button-container {
   display: flex;
   flex-wrap: wrap;

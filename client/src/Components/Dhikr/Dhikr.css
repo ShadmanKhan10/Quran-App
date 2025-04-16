@@ -4,7 +4,8 @@
 .dhikrtime-transliteration,
 .dhikrtime-virtue,
 .dhikrtime-reference,
-.dhikrtime-title-heading {
+.dhikrtime-title-heading,
+.dhikr-description {
   padding: 0;
   margin: 0;
 }
@@ -21,6 +22,10 @@
   gap: 1rem;
   padding-top: 1rem;
   box-sizing: border-box;
+}
+.dhikr-description {
+  margin: 1rem;
+  font-weight: bold;
 }
 .wide-images-container {
   width: 40%;
