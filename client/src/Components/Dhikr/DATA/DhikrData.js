@@ -1,26 +1,21 @@
-import evening from "../../../assets/evening.jpg";
-import morning from "../../../assets/morning.jpg";
-import sleep from "../../../assets/BeforeSleep.jpg";
-import illness from "../../../assets/illness.jpg";
-import beforeSalah from "../../../assets/beforeSalah.jpg";
-import afterSalah from "../../../assets/afterSalah.jpg";
-import praises from "../../../assets/praises.png";
+import morning from "../../../assets/morning.png";
+import evening from "../../../assets/evening.png";
+import beforeSleep from "../../../assets/sleeping.png";
+import illness from "../../../assets/illness.png";
+import beforeSalah from "../../../assets/beforeSalah.png";
+import afterSalah from "../../../assets/afterSalah.png";
+import allahPraises from "../../../assets/allah.png";
 import salahwat from "../../../assets/salahwat.png";
 
-export const wideImages = [
+export const dhikrInfo = [
   { source: morning, name: "Morning" },
   { source: evening, name: "Evening" },
-  { source: sleep, name: "Before Sleep" },
+  { source: beforeSleep, name: "Before Sleep" },
   { source: illness, name: "Ruqya & Illness" },
-];
-export const halfImages = [
   { source: beforeSalah, name: "Before Salah" },
   { source: afterSalah, name: "After Salah" },
-];
-
-export const halfImages2 = [
-  { source: praises, name: "Praises of Allah" },
-  { source: salahwat, name: "Salahwat" },
+  { source: allahPraises, name: "Praises of Allah" },
+  { source: salahwat, name: "After Salah" },
 ];
 
 export const DhikrData = {

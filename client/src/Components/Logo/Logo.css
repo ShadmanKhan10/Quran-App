@@ -1,0 +1,27 @@
+.main-logo-container {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: space-between;
+  align-items: center;
+  /* position: sticky;
+  top: 0; */
+  height: 4rem;
+}
+.logo-title-text {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.main-logo {
+  margin-left: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}

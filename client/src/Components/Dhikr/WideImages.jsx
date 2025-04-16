@@ -8,7 +8,7 @@ export default function WideImages({ wideImages }) {
     navigate(`/dhikr/${time}`);
   };
   return (
-    <>
+    <div className="dhikr-container">
       {wideImages.map((image) => (
         <div className="wide-images-container" key={image.name}>
           <img
@@ -21,6 +21,6 @@ export default function WideImages({ wideImages }) {
         </div>
       ))}
           
-    </>
+    </div>
   );
 }
