@@ -1,7 +1,9 @@
 import React from "react";
 import "./Sidebar.css";
+import { motion } from "framer-motion";
 import sidebarImg from "../../assets/sidebarImg.jpg";
 import HadithColumn from "./HadithColumn";
+
 import {
   columnData1,
   columnData2,
@@ -17,7 +19,13 @@ export default function Sidebar({ setIsSidebarOpen }) {
         onClick={() => setIsSidebarOpen((prev) => !prev)}
         className="sidebar-overlay"
       ></div>
-      <div className="sidebar-container">
+      <motion.div
+        className="sidebar-container"
+        initial={{ x: "100%" }}
+        animate={{ x: 0 }}
+        exit={{ x: "100%" }}
+        transition={{ type: "tween", duration: 0.4 }}
+      >
         <div className="sidebar-banner-img-container">
           <img src={sidebarImg} alt="banner" className="sidebar-banner" />
         </div>
@@ -26,7 +34,7 @@ export default function Sidebar({ setIsSidebarOpen }) {
         <HadithColumn columnData={columnData3} />
         <HadithColumn columnData={columnData4} />
         <HadithColumn columnData={columnData5} />
-      </div>
+      </motion.div>
     </>
   );
 }

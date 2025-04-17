@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { duasList } from "./DATA/DuaList";
+import { duasList, generalDuaList } from "./DATA/DuaList";
 import Navbar from "../Navbar/Navbar";
 import dua from "../../assets/dua.png";
 import "./Dua.css";
@@ -7,8 +7,9 @@ import Banner from "../Banner/Banner";
 import { DuaBannerData } from "../Banner/BannerData";
 
 export default function Dua() {
-  const [selectedOption, setSelectedOption] = useState("Your Mood");
+  const [selectedOption, setSelectedOption] = useState("General");
   const [selectedMood, setSelectedMood] = useState(null);
+  const [selectedGeneralDua, setSelectedGeneralDua] = useState(null);
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -30,11 +31,11 @@ export default function Dua() {
             value={selectedOption}
             onChange={handleChange}
           >
+            <option className="select-options" value="General">
+              General
+            </option>
             <option className="select-options" value="Your Mood">
               Your Mood
-            </option>
-            <option className="select-options" value="Your Need">
-              Your Need
             </option>
           </select>
         </div>
@@ -59,21 +60,50 @@ export default function Dua() {
         )}
 
         {selectedMood && selectedOption === "Your Mood" && (
-          <div>
+          <div className="whole-mood-container">
             <h2 className="dua-header-text">
               Duas for {selectedMood.mood} you!
             </h2>
             {selectedMood.duas.map((dua, index) => (
-              <div key={index} className="dua-container-texts">
+              <div key={index} className="moodial-dua-contianer">
                 <p className="main-dua-text">{dua.text}</p>
                 <p className="dua-transliteration">{dua.transliteration}</p>
                 <p className="dua-translation">{dua.translation}</p>
-                <label className="dua-reference-text">{dua.reference}</label>
+                <p className="dua-reference-text-unique">{dua.reference}</p>
               </div>
             ))}
           </div>
         )}
       </div>
+
+      {selectedOption === "General" && (
+        <div className="general-duas-container">
+          {generalDuaList.map((dua) => (
+            <div key={dua.title} className="general-dua-block">
+              <div
+                className="dua-title-heading"
+                onClick={() =>
+                  setSelectedGeneralDua(
+                    selectedGeneralDua === dua.title ? null : dua.title
+                  )
+                }
+              >
+                <p className="dua-title-heading-text">{dua.title}</p>
+              </div>
+
+              {selectedGeneralDua === dua.title && (
+                <div className="general-dua-content">
+                  <p className="main-dua-text">{dua.arabicText}</p>
+                  <p className="dua-transliteration">{dua.transliteration}</p>
+                  <p className="dua-translation">{dua.translation}</p>
+                  <p className="dua-reference-text-unique">{dua.reference}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
       <Navbar />
     </>
   );

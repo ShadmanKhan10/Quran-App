@@ -1316,4 +1316,129 @@ export const duasList = [
   },
 ];
 
-// export default duasList;
+export const generalDuaList = [
+  {
+    title: "Dua on Waking Up",
+    arabicText:
+      "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+    transliteration:
+      "Al-ḥamdu lillāhi alladhī aḥyānā baʿda mā amātanā wa ilayhi an-nushūr",
+    translation:
+      "All praise is for Allah who gave us life after having taken it from us and unto Him is the resurrection.",
+    reference: "Bukhari 6312, Muslim 2711",
+  },
+  {
+    title: "Dua Before Eating",
+    arabicText: "بِسْمِ اللَّهِ",
+    transliteration: "Bismillāh",
+    translation: "In the name of Allah.",
+    reference: "Bukhari 5376, Muslim 2022",
+  },
+  {
+    title: "Dua After Eating",
+    arabicText:
+      "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنِي هَذَا، وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+    transliteration:
+      "Al-ḥamdu lillāhi alladhī aṭʿamanī hādhā, wa razaqanīhi min ghayri ḥawlin minnī wa lā quwwah",
+    translation:
+      "Praise be to Allah who has fed me this and provided me with it without any power or might from myself.",
+    reference: "Abu Dawud 4023, Tirmidhi 3458",
+  },
+  {
+    title: "Dua for Drinking Milk",
+    arabicText: "اللَّهُمَّ بَارِكْ لَنَا فِيهِ وَزِدْنَا مِنْهُ",
+    transliteration: "Allāhumma bārik lanā fīhi wa zidnā minhu",
+    translation: "O Allah, bless it for us and give us more of it.",
+    reference: "Tirmidhi 3455",
+  },
+  {
+    title: "Dua Before Going to Toilet",
+    arabicText: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
+    transliteration:
+      "Allāhumma innī aʿūdhu bika mina al-khubthi wa al-khabāʾith",
+    translation: "O Allah, I seek refuge with You from male and female devils.",
+    reference: "Bukhari 142, Muslim 375",
+  },
+  {
+    title: "Dua After Coming from Toilet",
+    arabicText: "غُفْرَانَكَ",
+    transliteration: "Ghufrānak",
+    translation: "I seek Your forgiveness.",
+    reference: "Abu Dawud 30, Ibn Majah 300",
+  },
+  {
+    title: "Dua for Leaving Home",
+    arabicText:
+      "بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    transliteration:
+      "Bismillāh, tawakkaltu ʿalā Allāh, wa lā ḥawla wa lā quwwata illā billāh",
+    translation:
+      "In the name of Allah, I place my trust in Allah, and there is no might nor power except with Allah.",
+    reference: "Abu Dawud 5095, Tirmidhi 3426",
+  },
+  {
+    title: "Dua for Entering Home",
+    arabicText:
+      "بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا",
+    transliteration:
+      "Bismillāhi walajnā, wa bismillāhi kharajnā, wa ʿalā rabbina tawakkalnā",
+    translation:
+      "In the name of Allah we enter, and in the name of Allah we leave, and upon our Lord we place our trust.",
+    reference: "Abu Dawud 5096",
+  },
+  {
+    title: "Dua for Journey",
+    arabicText:
+      "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى",
+    transliteration:
+      "Allāhumma innā nasʾaluk fī safarinā hādhā al-birra wa at-taqwā, wa mina al-ʿamali mā tarḍā",
+    translation:
+      "O Allah, we ask You in this journey for righteousness and piety, and for deeds that are pleasing to You.",
+    reference: "Muslim 1342",
+  },
+  {
+    title: "Dua Before Sleeping",
+    arabicText:
+      "بِاسْمِكَ رَبِّي وَضَعْتُ جَنْبِي، وَبِكَ أَرْفَعُهُ، فَإِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا، وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+    transliteration:
+      "Bismika rabbī waḍaʿtu janbī, wa bika arfaʿuh, fa-in amsakta nafsī farḥamhā, wa in arsaltahā faḥfaẓhā bimā taḥfaẓu bihi ʿibādaka aṣ-ṣāliḥīn",
+    translation:
+      "In Your name, my Lord, I lie down and in Your name I rise. If You take my soul, have mercy on it, and if You return it, protect it as You protect Your righteous servants.",
+    reference: "Bukhari 6320, Muslim 2714",
+  },
+  {
+    title: "Dua for Dressing Up",
+    arabicText:
+      "اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ كَسَوْتَنِيهِ، أَسْأَلُكَ مِنْ خَيْرِهِ وَخَيْرِ مَا صُنِعَ لَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّهِ وَشَرِّ مَا صُنِعَ لَهُ",
+    transliteration:
+      "Allāhumma laka al-ḥamdu anta kasawtanīhi, asʾaluk min khayrihi wa khayri mā ṣuniʿa lahu, wa aʿūdhu bika min sharrihi wa sharri mā ṣuniʿa lahu",
+    translation:
+      "O Allah, all praise is for You. You have clothed me with it. I ask You for its good and the good of what it was made for, and I seek refuge in You from its evil and the evil of what it was made for.",
+    reference: "Abu Dawud 4020, Tirmidhi 1767",
+  },
+  {
+    title: "Dua for Seeing Mirror",
+    arabicText: "اللَّهُمَّ كَمَا حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي",
+    transliteration: "Allāhumma kamā ḥassan ta khalqī fa ḥassin khuluqī",
+    translation:
+      "O Allah, just as You have made my external features beautiful, make my character beautiful as well.",
+    reference: "Bukhari in al-Adab al-Mufrad 1251",
+  },
+  {
+    title: "Dua Before Making Wudu",
+    arabicText: "بِسْمِ اللَّهِ",
+    transliteration: "Bismillāh",
+    translation: "In the name of Allah.",
+    reference: "Abu Dawood 101, Ibn Majah 398",
+  },
+  {
+    title: "Dua After Making Wudu",
+    arabicText:
+      "أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+    transliteration:
+      "Ashhadu an lā ilāha illā Allāhu waḥdahu lā sharīka lah, wa ashhadu anna Muḥammadan ʿabduhū wa rasūluh",
+    translation:
+      "I bear witness that there is no deity worthy of worship except Allah alone, He has no partner, and I bear witness that Muhammad is His servant and Messenger.",
+    reference: "Muslim 234",
+  },
+];

@@ -1,14 +1,11 @@
-.dua-container {
-  margin-bottom: 5rem;
-}
-
 .heading-dua-text,
 .subheading-dua-text,
 .dua-header-text,
 .main-dua-text,
 .dua-reference-text,
 .dua-transliteration,
-.dua-translation {
+.dua-translation,
+.dua-title-heading-text {
   padding: 0;
   margin: 0;
 }
@@ -58,7 +55,9 @@
   align-items: center;
   gap: 1rem;
   margin: 1rem;
+  margin-bottom: 4.5rem;
 }
+
 .mood-button-active {
   height: 2.2rem;
   border: 0.5px solid black;
@@ -67,12 +66,20 @@
   color: white;
   border-radius: 0.4rem;
 }
+
 .mood-button {
   height: 2.2rem;
   border: 0.5px solid black;
   font-size: 0.9rem;
   background-color: transparent;
   border-radius: 0.4rem;
+}
+.whole-mood-container {
+  margin-bottom: 4.5rem;
+}
+.moodial-dua-contianer {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .dua-container-texts {
   margin-left: 1rem;
@@ -97,6 +104,15 @@
   padding-left: 0.4rem;
   box-sizing: border-box;
 }
+.dua-reference-text-unique {
+  text-align: right;
+  font-size: 0.8rem;
+  margin-top: 0.9rem;
+  color: gray;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+  box-sizing: border-box;
+}
 .dua-transliteration {
   text-align: center;
   font-family: "Nunito NormalItalic";
@@ -112,4 +128,19 @@
   padding-bottom: 0.2rem;
   border-radius: 0.3rem;
   box-sizing: border-box;
+}
+.general-duas-container {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 4.5rem;
+}
+.general-dua-content {
+  margin-bottom: 1rem;
+}
+.dua-title-heading {
+  border-radius: 0.4rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  background-color: rgba(253, 243, 232, 255);
 }
