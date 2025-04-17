@@ -42,4 +42,10 @@ export const SERVICESDATA = [
     imgSrc: hadith,
     path: "hadith",
   },
+  {
+    heading: "QIbla-Finder",
+    subHeading: "Locate Qibla ",
+    imgSrc: hadith,
+    path: "qibla",
+  },
 ];

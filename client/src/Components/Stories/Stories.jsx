@@ -3,8 +3,8 @@ import { allProphets } from "./DATA/storiesData";
 import { useNavigate } from "react-router-dom";
 import "./Stories.css";
 import search from "../../assets/search.png";
-import Lottie from "lottie-react";
-import prophetanimation from "../../assets/prophetStoriesAnimation.json";
+
+import storyimg from "../../assets/prophet-stories.jpg";
 
 export default function Stories() {
   const navigation = useNavigate();
@@ -28,7 +28,7 @@ export default function Stories() {
   return (
     <>
       <div className="hadith-animation-banner">
-        <Lottie className="load-animation" animationData={prophetanimation} />
+        <img className="load-animation-unique" src={storyimg} alt="img" />
       </div>
 
       <div className="stories-container">

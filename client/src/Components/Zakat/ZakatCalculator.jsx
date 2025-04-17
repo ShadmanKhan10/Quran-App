@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ZakatBannerData } from "../Banner/BannerData";
 import Banner from "../Banner/Banner";
-
 import axios from "axios";
 
 const ZakatCalculator = () => {
@@ -18,28 +17,26 @@ const ZakatCalculator = () => {
     debts: "",
   });
   const [zakatDue, setZakatDue] = useState(null);
-  const GOLD_API_KEY = import.meta.env.VITE_GOLD_API_KEY;
+
+  const METALS_API_KEY = import.meta.env.VITE_METALS_API_KEY;
 
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const [goldRes, silverRes] = await Promise.all([
-          axios.get("https://www.goldapi.io/api/XAU/USD", {
+        const response = await axios.get(
+          `https://api.metals.dev/v1/latest?api_key=${METALS_API_KEY}&currency=INR&unit=g`,
+          {
             headers: {
-              "x-access-token": GOLD_API_KEY, // replace with your API key
-              "Content-Type": "application/json",
+              Accept: "application/json",
             },
-          }),
-          axios.get("https://www.goldapi.io/api/XAG/USD", {
-            headers: {
-              "x-access-token": GOLD_API_KEY,
-              "Content-Type": "application/json",
-            },
-          }),
-        ]);
+          }
+        );
 
-        const goldPerGram = goldRes.data.price / 31.1035;
-        const silverPerGram = silverRes.data.price / 31.1035;
+        const data = response.data;
+
+        // Get gold and silver prices in INR per gram directly
+        const goldPerGram = parseFloat(data.metals.gold); // already in grams
+        const silverPerGram = parseFloat(data.metals.silver);
 
         const nisabG = goldPerGram * 87.48;
         const nisabS = silverPerGram * 612.36;
@@ -48,7 +45,7 @@ const ZakatCalculator = () => {
         setSilverPrice(silverPerGram);
         setNisabGold(nisabG);
         setNisabSilver(nisabS);
-        setNisabUsed(Math.min(nisabG, nisabS)); // Lower value used for Zakat eligibility
+        setNisabUsed(Math.min(nisabG, nisabS));
       } catch (error) {
         console.error("Error fetching prices:", error);
       }
@@ -96,20 +93,20 @@ const ZakatCalculator = () => {
           <>
             <div className="zakat-price-info">
               <p className="price-item">
-                <strong>Gold Price:</strong> ${goldPrice.toFixed(2)} / gram
+                <strong>Gold Price:</strong> ₹{goldPrice.toFixed(2)} / gram
               </p>
               <p className="price-item">
-                <strong>Silver Price:</strong> ${silverPrice.toFixed(2)} / gram
+                <strong>Silver Price:</strong> ₹{silverPrice.toFixed(2)} / gram
               </p>
               <p className="price-item">
-                <strong>Gold Nisab:</strong> ${nisabGold.toFixed(2)} (87.48g)
+                <strong>Gold Nisab:</strong> ₹{nisabGold.toFixed(2)} (87.48g)
               </p>
               <p className="price-item">
-                <strong>Silver Nisab:</strong> ${nisabSilver.toFixed(2)}{" "}
+                <strong>Silver Nisab:</strong> ₹{nisabSilver.toFixed(2)}{" "}
                 (612.36g)
               </p>
               <p className="price-item">
-                <strong>Nisab Used:</strong> ${nisabUsed.toFixed(2)} (Lower of
+                <strong>Nisab Used:</strong> ₹{nisabUsed.toFixed(2)} (Lower of
                 Gold or Silver)
               </p>
             </div>
@@ -174,7 +171,7 @@ const ZakatCalculator = () => {
               <div className="zakat-result">
                 {zakatDue > 0 ? (
                   <p className="zakat-due">
-                    <strong>Zakat Due:</strong> ${zakatDue}
+                    <strong>Zakat Due:</strong> ₹{zakatDue}
                   </p>
                 ) : (
                   <p className="zakat-not-eligible">
