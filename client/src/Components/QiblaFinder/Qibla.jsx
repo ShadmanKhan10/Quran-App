@@ -1,125 +1,132 @@
-import React, { useEffect, useState } from "react";
-import arrowImg from "../../assets/move.png";
+import React, { useEffect, useRef, useState } from "react";
 
-export default function Qibla() {
-  const [location, setLocation] = useState(null);
-  const [qiblaAngle, setQiblaAngle] = useState(null);
-  const [heading, setHeading] = useState(0);
+const Qibla = () => {
+  const videoRef = useRef(null);
+  const arrowRef = useRef(null);
+  const [qiblaDirection, setQiblaDirection] = useState(null);
+  const [error, setError] = useState("");
 
-  const kaabaCoordinates = { lat: 21.4225, lon: 39.8262 };
+  // Calculate Qibla direction from current lat/lon
+  const getQiblaDirection = (lat, lon) => {
+    const kaabaLat = 21.4225;
+    const kaabaLon = 39.8262;
+    const φ1 = (lat * Math.PI) / 180;
+    const φ2 = (kaabaLat * Math.PI) / 180;
+    const Δλ = ((kaabaLon - lon) * Math.PI) / 180;
 
+    const y = Math.sin(Δλ) * Math.cos(φ2);
+    const x =
+      Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
+    const θ = Math.atan2(y, x);
+    const bearing = (θ * 180) / Math.PI;
+    return (bearing + 360) % 360;
+  };
+
+  // Get location
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setLocation({ lat: latitude, lon: longitude });
-        },
-        (error) => {
-          console.error("Geolocation error:", error);
-        }
-      );
-    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        const dir = getQiblaDirection(latitude, longitude);
+        setQiblaDirection(dir);
+      },
+      () => {
+        setError("Location permission denied. Cannot calculate Qibla.");
+      }
+    );
   }, []);
 
+  // Get camera access
   useEffect(() => {
-    if (location) {
-      const { lat, lon } = location;
+    navigator.mediaDevices
+      .getUserMedia({ video: { facingMode: "environment" } })
+      .then((stream) => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+      })
+      .catch(() =>
+        setError("Camera permission denied. Cannot show background.")
+      );
+  }, []);
 
-      const φ1 = (lat * Math.PI) / 180;
-      const λ1 = (lon * Math.PI) / 180;
-      const φ2 = (kaabaCoordinates.lat * Math.PI) / 180;
-      const λ2 = (kaabaCoordinates.lon * Math.PI) / 180;
-
-      const deltaLambda = λ2 - λ1;
-
-      const x = Math.sin(deltaLambda) * Math.cos(φ2);
-      const y =
-        Math.cos(φ1) * Math.sin(φ2) -
-        Math.sin(φ1) * Math.cos(φ2) * Math.cos(deltaLambda);
-
-      const theta = Math.atan2(x, y);
-      const bearing = (theta * 180) / Math.PI;
-      const normalizedBearing = (bearing + 360) % 360;
-
-      setQiblaAngle(normalizedBearing);
-    }
-  }, [location]);
-
+  // Handle device orientation
   useEffect(() => {
     const handleOrientation = (event) => {
-      if (event.absolute || event.webkitCompassHeading !== undefined) {
-        const compass = event.webkitCompassHeading || 360 - event.alpha;
-        setHeading(compass);
-      } else {
-        setHeading(360 - event.alpha);
-      }
-    };
-
-    const requestPermission = async () => {
-      if (
-        typeof DeviceOrientationEvent !== "undefined" &&
-        typeof DeviceOrientationEvent.requestPermission === "function"
-      ) {
-        try {
-          const permission = await DeviceOrientationEvent.requestPermission();
-          if (permission === "granted") {
-            window.addEventListener(
-              "deviceorientation",
-              handleOrientation,
-              true
-            );
-          }
-        } catch (err) {
-          console.error("DeviceOrientation permission error:", err);
+      if (qiblaDirection !== null) {
+        const alpha = event.alpha;
+        const rotation = qiblaDirection - alpha;
+        if (arrowRef.current) {
+          arrowRef.current.style.transform = `rotate(${rotation}deg)`;
         }
-      } else {
-        window.addEventListener("deviceorientation", handleOrientation, true);
       }
     };
 
-    requestPermission();
-
-    return () => {
-      window.removeEventListener("deviceorientation", handleOrientation);
-    };
-  }, []);
-
-  const rotation = qiblaAngle !== null ? (qiblaAngle - heading + 360) % 360 : 0;
+    window.addEventListener(
+      "deviceorientationabsolute",
+      handleOrientation,
+      true
+    );
+    return () =>
+      window.removeEventListener(
+        "deviceorientationabsolute",
+        handleOrientation
+      );
+  }, [qiblaDirection]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Qibla Finder</h1>
-
-      {location && qiblaAngle !== null && (
-        <>
-          <p>
-            My Coordinates: {location.lat.toFixed(4)}, {location.lon.toFixed(4)}
-          </p>
-          <p>
-            Kaaba Direction: <strong>{qiblaAngle.toFixed(2)}°</strong>
-          </p>
-          <p>
-            Device Heading: <strong>{heading.toFixed(2)}°</strong>
-          </p>
-
-          <div
-            style={{
-              width: "120px",
-              height: "120px",
-              margin: "30px auto",
-              transform: `rotate(${rotation}deg)`,
-              transition: "transform 0.3s ease-in-out",
-            }}
-          >
-            <img
-              src={arrowImg}
-              alt="Qibla Arrow"
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-        </>
-      )}
+    <div style={styles.container}>
+      <video ref={videoRef} autoPlay muted playsInline style={styles.video} />
+      <div style={styles.overlay}>
+        {error && <p style={styles.error}>{error}</p>}
+        <div ref={arrowRef} style={styles.arrow}>
+          🧭
+        </div>
+        {!error && <p style={styles.text}>Point this arrow toward the Qibla</p>}
+      </div>
     </div>
   );
-}
+};
+
+// Vanilla CSS in JS
+const styles = {
+  container: {
+    position: "relative",
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+  },
+  video: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    zIndex: 0,
+  },
+  overlay: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    zIndex: 1,
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    color: "white",
+  },
+  arrow: {
+    fontSize: "4rem",
+    transition: "transform 0.3s ease",
+  },
+  text: {
+    marginTop: "1rem",
+    fontSize: "1.2rem",
+  },
+  error: {
+    backgroundColor: "rgba(0,0,0,0.7)",
+    padding: "10px 20px",
+    borderRadius: "10px",
+    color: "#ffdddd",
+    marginBottom: "1rem",
+  },
+};
+
+export default Qibla;

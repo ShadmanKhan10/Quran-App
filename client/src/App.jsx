@@ -21,6 +21,9 @@ import DhikrTime from "./Components/Dhikr/DhikrTime";
 import ProphetStories from "./Components/Stories/ProphetStories";
 import Stories from "./Components/Stories/Stories";
 import Qibla from "./Components/QiblaFinder/Qibla";
+import History from "./Components/History/History";
+import PerticularHistory from "./Components/History/PerticularHistory";
+import Myths from "./Components/Myths/Myths";
 
 function App() {
   return (
@@ -55,7 +58,13 @@ function App() {
             <Route path="/stories" element={<Stories />} />
             <Route path="/stories/:prophetName" element={<ProphetStories />} />
 
-            <Route path="/qibla" element={<Qibla />} />
+            {/* <Route path="/qibla" element={<Qibla />} /> */}
+            <Route path="/history" element={<History />} />
+            <Route
+              path="/history/:perticularHistory"
+              element={<PerticularHistory />}
+            />
+            <Route path="/myths" element={<Myths />} />
           </Routes>
 
           <Navbar />

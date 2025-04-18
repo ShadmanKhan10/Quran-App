@@ -4,6 +4,8 @@ import quran from "../../assets/quranImg.png";
 import beads from "../../assets/beads.png";
 import hadith from "../../assets/hadith.png";
 import stories from "../../assets/sand.png";
+import history from "../../assets/pyramids.png";
+import misconception from "../../assets/misconception.png";
 
 export const SERVICESDATA = [
   {
@@ -47,5 +49,17 @@ export const SERVICESDATA = [
     subHeading: "Locate Qibla ",
     imgSrc: hadith,
     path: "qibla",
+  },
+  {
+    heading: "History",
+    subHeading: "Islamic history",
+    imgSrc: history,
+    path: "history",
+  },
+  {
+    heading: "Myths",
+    subHeading: "Myths & Media",
+    imgSrc: misconception,
+    path: "myths",
   },
 ];
