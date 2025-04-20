@@ -8,6 +8,14 @@ import sujud from "../../assets/sujud.png";
 import books from "../../assets/books.png";
 import duaIcon from "../../assets/muslims.png";
 
+import faith from "../../assets/Faith.png";
+import salah from "../../assets/SalahPiller.png";
+import hajj from "../../assets/Hajj.png";
+import sawm from "../../assets/Sawm.png";
+import zakat from "../../assets/ZakatPiller.png";
+import jihad from "../../assets/Jihad.png";
+import { hadithBooks } from "../Hadith/DATA/HadithData";
+
 export const BannerData = [
   {
     heading: "Pay Zakat Fitra",

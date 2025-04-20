@@ -24,6 +24,7 @@ import Qibla from "./Components/QiblaFinder/Qibla";
 import History from "./Components/History/History";
 import PerticularHistory from "./Components/History/PerticularHistory";
 import Myths from "./Components/Myths/Myths";
+import PerticularPiller from "./Components/Home/PerticularPiller";
 
 function App() {
   return (
@@ -58,13 +59,14 @@ function App() {
             <Route path="/stories" element={<Stories />} />
             <Route path="/stories/:prophetName" element={<ProphetStories />} />
 
-            {/* <Route path="/qibla" element={<Qibla />} /> */}
+            <Route path="/qibla" element={<Qibla />} />
             <Route path="/history" element={<History />} />
             <Route
               path="/history/:perticularHistory"
               element={<PerticularHistory />}
             />
             <Route path="/myths" element={<Myths />} />
+            <Route path="/:piller" element={<PerticularPiller />} />
           </Routes>
 
           <Navbar />

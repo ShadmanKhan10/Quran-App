@@ -1,132 +1,81 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Qibla.css";
 
 const Qibla = () => {
-  const videoRef = useRef(null);
-  const arrowRef = useRef(null);
-  const [qiblaDirection, setQiblaDirection] = useState(null);
+  const [mosques, setMosques] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  // Calculate Qibla direction from current lat/lon
-  const getQiblaDirection = (lat, lon) => {
-    const kaabaLat = 21.4225;
-    const kaabaLon = 39.8262;
-    const φ1 = (lat * Math.PI) / 180;
-    const φ2 = (kaabaLat * Math.PI) / 180;
-    const Δλ = ((kaabaLon - lon) * Math.PI) / 180;
-
-    const y = Math.sin(Δλ) * Math.cos(φ2);
-    const x =
-      Math.cos(φ1) * Math.sin(φ2) - Math.sin(φ1) * Math.cos(φ2) * Math.cos(Δλ);
-    const θ = Math.atan2(y, x);
-    const bearing = (θ * 180) / Math.PI;
-    return (bearing + 360) % 360;
-  };
-
-  // Get location
   useEffect(() => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser.");
+      setLoading(false);
+      return;
+    }
+
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const { latitude, longitude } = pos.coords;
-        const dir = getQiblaDirection(latitude, longitude);
-        setQiblaDirection(dir);
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log("Latitude:", latitude, "Longitude:", longitude);
+
+        // Overpass API query to find mosques within 5000 meters (5 km)
+        const query = `
+          [out:json];
+          (
+            node["amenity"="place_of_worship"](around:5000,${latitude},${longitude});
+            way["amenity"="place_of_worship"](around:5000,${latitude},${longitude});
+            relation["amenity"="place_of_worship"](around:5000,${latitude},${longitude});
+          );
+          out center;
+        `;
+
+        try {
+          const response = await fetch(
+            "https://overpass-api.de/api/interpreter",
+            {
+              method: "POST",
+              body: query,
+            }
+          );
+          const data = await response.json();
+          console.log("Overpass Response:", data);
+
+          if (data.elements.length === 0) {
+            setError("No mosques or places of worship found within 5 km.");
+          } else {
+            setMosques(data.elements);
+          }
+        } catch (err) {
+          console.error(err);
+          setError("Failed to fetch places of worship.");
+        } finally {
+          setLoading(false);
+        }
       },
       () => {
-        setError("Location permission denied. Cannot calculate Qibla.");
+        setError("Unable to retrieve your location.");
+        setLoading(false);
       }
     );
   }, []);
-
-  // Get camera access
-  useEffect(() => {
-    navigator.mediaDevices
-      .getUserMedia({ video: { facingMode: "environment" } })
-      .then((stream) => {
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      })
-      .catch(() =>
-        setError("Camera permission denied. Cannot show background.")
-      );
-  }, []);
-
-  // Handle device orientation
-  useEffect(() => {
-    const handleOrientation = (event) => {
-      if (qiblaDirection !== null) {
-        const alpha = event.alpha;
-        const rotation = qiblaDirection - alpha;
-        if (arrowRef.current) {
-          arrowRef.current.style.transform = `rotate(${rotation}deg)`;
-        }
-      }
-    };
-
-    window.addEventListener(
-      "deviceorientationabsolute",
-      handleOrientation,
-      true
-    );
-    return () =>
-      window.removeEventListener(
-        "deviceorientationabsolute",
-        handleOrientation
-      );
-  }, [qiblaDirection]);
 
   return (
-    <div style={styles.container}>
-      <video ref={videoRef} autoPlay muted playsInline style={styles.video} />
-      <div style={styles.overlay}>
-        {error && <p style={styles.error}>{error}</p>}
-        <div ref={arrowRef} style={styles.arrow}>
-          🧭
-        </div>
-        {!error && <p style={styles.text}>Point this arrow toward the Qibla</p>}
-      </div>
+    <div className="mosque-container">
+      <h2>Nearby Mosques / Places of Worship (within 5 km)</h2>
+      {loading && <p>Loading...</p>}
+      {error && <p className="error">{error}</p>}
+      <ul>
+        {mosques.map((place, index) => (
+          <li key={index}>
+            <strong>{place.tags?.name || "Unnamed Place"}</strong>
+            <br />
+            Latitude: {place.lat || place.center?.lat}, Longitude:{" "}
+            {place.lon || place.center?.lon}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-// Vanilla CSS in JS
-const styles = {
-  container: {
-    position: "relative",
-    width: "100vw",
-    height: "100vh",
-    overflow: "hidden",
-  },
-  video: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    zIndex: 0,
-  },
-  overlay: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    zIndex: 1,
-    transform: "translate(-50%, -50%)",
-    textAlign: "center",
-    color: "white",
-  },
-  arrow: {
-    fontSize: "4rem",
-    transition: "transform 0.3s ease",
-  },
-  text: {
-    marginTop: "1rem",
-    fontSize: "1.2rem",
-  },
-  error: {
-    backgroundColor: "rgba(0,0,0,0.7)",
-    padding: "10px 20px",
-    borderRadius: "10px",
-    color: "#ffdddd",
-    marginBottom: "1rem",
-  },
 };
 
 export default Qibla;
