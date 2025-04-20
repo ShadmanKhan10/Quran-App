@@ -6,6 +6,7 @@ import { BannerData } from "../Banner/BannerData";
 import Logo from "../Logo/Logo";
 import "./Home.css";
 import Pillers from "./Pillers";
+import Afterlife from "../AfterLife/Afterlife";
 
 export default function Home() {
   return (
@@ -19,6 +20,11 @@ export default function Home() {
         Core Beliefs and Practices of the Faith
       </p>
       <Pillers />
+      <h1 className="essence-text">Afterlife</h1>
+      <p className="essense-subheading">
+        How is life after death, the final destination.
+      </p>
+      <Afterlife />
     </div>
   );
 }

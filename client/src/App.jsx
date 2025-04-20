@@ -25,6 +25,7 @@ import History from "./Components/History/History";
 import PerticularHistory from "./Components/History/PerticularHistory";
 import Myths from "./Components/Myths/Myths";
 import PerticularPiller from "./Components/Home/PerticularPiller";
+import PerticularAfterWorld from "./Components/AfterLife/PerticularAfterWorld";
 
 function App() {
   return (
@@ -67,6 +68,10 @@ function App() {
             />
             <Route path="/myths" element={<Myths />} />
             <Route path="/:piller" element={<PerticularPiller />} />
+            <Route
+              path="/afterlife/:perticularAfterlife"
+              element={<PerticularAfterWorld />}
+            />
           </Routes>
 
           <Navbar />
