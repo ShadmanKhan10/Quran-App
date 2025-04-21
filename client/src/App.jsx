@@ -67,7 +67,8 @@ function App() {
               element={<PerticularHistory />}
             />
             <Route path="/myths" element={<Myths />} />
-            <Route path="/:piller" element={<PerticularPiller />} />
+            <Route path="/pillers/:piller" element={<PerticularPiller />} />
+
             <Route
               path="/afterlife/:perticularAfterlife"
               element={<PerticularAfterWorld />}

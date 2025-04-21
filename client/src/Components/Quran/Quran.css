@@ -247,8 +247,8 @@
 }
 .all-verses-container {
   background-color: rgba(255, 250, 245, 255);
-
   margin: 1rem;
+  margin-bottom: 4.5rem;
 }
 .verse-container {
   display: flex;

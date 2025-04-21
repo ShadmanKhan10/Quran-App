@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Pillers() {
   const navigate = useNavigate();
   const handleNavigation = (path) => {
-    navigate(`/${path}`);
+    navigate(`/pillers/${path}`);
   };
 
   return (

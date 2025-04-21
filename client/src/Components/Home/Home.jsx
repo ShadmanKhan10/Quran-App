@@ -7,6 +7,7 @@ import Logo from "../Logo/Logo";
 import "./Home.css";
 import Pillers from "./Pillers";
 import Afterlife from "../AfterLife/Afterlife";
+import Footer from "../Footer/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         How is life after death, the final destination.
       </p>
       <Afterlife />
+      <Footer />
     </div>
   );
 }
