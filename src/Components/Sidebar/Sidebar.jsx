@@ -11,6 +11,7 @@ import {
   columnData4,
   columnData5,
   columnData8,
+  columnData9,
 } from "./DATA/ColumnData";
 
 export default function Sidebar({ setIsSidebarOpen }) {
@@ -37,6 +38,10 @@ export default function Sidebar({ setIsSidebarOpen }) {
         </div>
         <HadithColumn
           columnData={columnData7}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+        <HadithColumn
+          columnData={columnData9}
           setIsSidebarOpen={setIsSidebarOpen}
         />
         <HadithColumn

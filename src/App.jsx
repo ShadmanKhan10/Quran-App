@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Quran from "./Components/Quran/Quran";
 import Home from "./Components/Home/Home";
 import SpecifChapter from "./Components/Quran/SpecifChapter";
@@ -35,64 +35,67 @@ import PopSurah from "./Components/PopSurah/PopSurah";
 import Notfound from "./Components/Notfound/Notfound";
 import Footer from "./Components/Footer/Footer";
 import { useTheme } from "./Context/ThemeContext";
+import Assistant from "./Components/Assistant/Assistant";
 
 function App() {
   const { theme } = useTheme();
+  const location = useLocation();
+
+  const hideLayout = location.pathname === "/quran/assistant";
 
   return (
     <div className={theme ? "dark-mode" : "light-mode"}>
       <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f5f5f5">
-        <BrowserRouter>
-          <Logo />
+        <Logo />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/quran" element={<Quran />} />
-            <Route path="/quran/:chapterType/:id" element={<SpecifChapter />} />
-            <Route
-              path="/quran/:chapterType/:id/:startPage"
-              element={<SpecificPage />}
-            />
-            <Route path="/zakat" element={<Zakat />} />
-            <Route path="/dua" element={<Dua />} />
-            <Route path="/dhikr" element={<Dhikr />} />
-            <Route path="/dhikr/:time" element={<DhikrTime />} />
-            <Route path="/stories" element={<Stories />} />
-            <Route path="/stories/:prophetName" element={<ProphetStories />} />
-            <Route path="/hadith" element={<Hadith />} />
-            <Route path="/hadith/:hadithBooks" element={<HadithChapters />} />
-            <Route
-              path="/hadith/:hadithBooks/:chapterName"
-              element={<SelectedChapter />}
-            />
-            <Route
-              path="/hadith/:hadithBooks/hadith/:hadithNumber"
-              element={<SingleHadith />}
-            />
-            <Route path="/history" element={<History />} />
-            <Route path="/history/:name" element={<SingleHistory />} />
-            <Route path="/myths" element={<Myths />} />
-            <Route path="/allah-names" element={<AllahNames />} />
-            <Route path="/sunnah" element={<Sunnah />} />
-            <Route path="/sunnah/:name" element={<SingleSunnah />} />
-            <Route path="/imam" element={<Imam />} />
-            <Route path="/surah" element={<PopSurah />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/quran" element={<Quran />} />
+          <Route path="/quran/:chapterType/:id" element={<SpecifChapter />} />
+          <Route
+            path="/quran/:chapterType/:id/:startPage"
+            element={<SpecificPage />}
+          />
+          <Route path="/zakat" element={<Zakat />} />
+          <Route path="/dua" element={<Dua />} />
+          <Route path="/dhikr" element={<Dhikr />} />
+          <Route path="/dhikr/:time" element={<DhikrTime />} />
+          <Route path="/stories" element={<Stories />} />
+          <Route path="/stories/:prophetName" element={<ProphetStories />} />
+          <Route path="/hadith" element={<Hadith />} />
+          <Route path="/hadith/:hadithBooks" element={<HadithChapters />} />
+          <Route
+            path="/hadith/:hadithBooks/:chapterName"
+            element={<SelectedChapter />}
+          />
+          <Route
+            path="/hadith/:hadithBooks/hadith/:hadithNumber"
+            element={<SingleHadith />}
+          />
+          <Route path="/history" element={<History />} />
+          <Route path="/history/:name" element={<SingleHistory />} />
+          <Route path="/myths" element={<Myths />} />
+          <Route path="/allah-names" element={<AllahNames />} />
+          <Route path="/sunnah" element={<Sunnah />} />
+          <Route path="/sunnah/:name" element={<SingleSunnah />} />
+          <Route path="/imam" element={<Imam />} />
+          <Route path="/surah" element={<PopSurah />} />
 
-            <Route path="/prayer" element={<Prayer />} />
-            <Route path="/prayer/:prayerType" element={<PrayerType />} />
+          <Route path="/prayer" element={<Prayer />} />
+          <Route path="/prayer/:prayerType" element={<PrayerType />} />
 
-            <Route path="/pillers/:piller" element={<PerticularPiller />} />
-            <Route
-              path="/afterlife/:perticularAfterlife"
-              element={<PerticularAfterWorld />}
-            />
-            <Route path="*" element={<Notfound />} />
-          </Routes>
+          <Route path="/pillers/:piller" element={<PerticularPiller />} />
+          <Route
+            path="/afterlife/:perticularAfterlife"
+            element={<PerticularAfterWorld />}
+          />
+          <Route path="/quran/assistant" element={<Assistant />} />
+          <Route path="*" element={<Notfound />} />
+        </Routes>
 
-          <Navbar />
-          <Footer />
-        </BrowserRouter>
+        {!hideLayout && <Navbar />}
+        {!hideLayout && <Footer />}
       </SkeletonTheme>
     </div>
   );

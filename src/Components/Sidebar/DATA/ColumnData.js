@@ -80,3 +80,9 @@ export const columnData8 = [
     location: "/barzakh",
   },
 ];
+export const columnData9 = [
+  {
+    name: "Talk to our Bot",
+    location: "/quran/assistant",
+  },
+];
